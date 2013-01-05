@@ -57,3 +57,10 @@ function OnCollisionEnter(collision : Collision) {
     }
     
 }
+
+
+function OnTriggerEnter (collider : Collider) {
+    if(collider.gameObject.tag == "enemy"){
+    	Destroy(collider.gameObject);
+    }
+}

@@ -1,7 +1,7 @@
 #pragma strict
 
-var startRatio:float;
-var firstTime:boolean;
+private var startRatio:float;
+private var firstTime:boolean;
 function Start () {
 	firstTime = true;
 }
