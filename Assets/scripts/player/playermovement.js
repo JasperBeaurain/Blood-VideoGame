@@ -4,11 +4,12 @@ function Start () {
 }
 
 var leftBorder : float = -5.0;
-
 var rightBorder : float = 5.0;
 
 var forwardSpeed: float = 15.0;
 var horizontalSpeed : float = 10.0;
+
+var androidHorizontalSpeed:float;
 
 public static var distTravelled:float;
 
@@ -18,7 +19,7 @@ function Update () {
 		//Android Version
 		var cali : Vector3 = Vector3.zero;
 		cali.x = -Input.acceleration.y;
-		rigidbody.velocity = cali * horizontalSpeed;
+		rigidbody.velocity = cali * androidHorizontalSpeed;
  	}else{
 	 	//Pc version!
 		var x = Input.GetAxis("Horizontal") * horizontalSpeed;

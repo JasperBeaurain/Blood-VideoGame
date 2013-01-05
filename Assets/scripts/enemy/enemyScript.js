@@ -56,5 +56,7 @@ function calc(isRatio:boolean){
 function OnTriggerEnter (collider : Collider) {
     if(collider.gameObject.tag == "LevelEnd"){
     	Destroy(gameObject);
+    	Debug.Log("derp");
     }
+    Debug.Log("boe");
 }

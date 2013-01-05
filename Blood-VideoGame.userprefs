@@ -1,11 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\level\Spawner.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\level\levelEnd.js">
     <Files>
+      <File FileName="Assets\scripts\enemy\enemyScript.js" Line="59" Column="21" />
       <File FileName="Assets\scripts\level\levelManager.js" Line="17" Column="3" />
-      <File FileName="Assets\scripts\level\Spawner.js" Line="35" Column="24" />
-      <File FileName="Assets\scripts\enemy\enemyScript.js" Line="49" Column="19" />
-      <File FileName="Assets\scripts\player\playermovement.js" Line="55" Column="43" />
+      <File FileName="Assets\scripts\level\Spawner.js" Line="17" Column="28" />
+      <File FileName="Assets\scripts\player\playermovement.js" Line="12" Column="5" />
+      <File FileName="Assets\scripts\level\levelEnd.js" Line="11" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
