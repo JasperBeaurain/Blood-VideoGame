@@ -17,8 +17,10 @@ function Update () {
 	var hitLeftPoint : RaycastHit;
 	var leftXPos:float;
 	if (Physics.Raycast (transform.position, Vector3.left, hitLeftPoint, 150.0)) {
-		leftXPos = hitLeftPoint.point.x;
-		transform.position.x = leftXPos + (calc(false) * startRatio);
+		if(hitLeftPoint.transform.gameObject.tag == "levelWall"){
+			leftXPos = hitLeftPoint.point.x;
+			transform.position.x = leftXPos + (calc(false) * startRatio);
+		}
 	}
 	
 	//transform.position = (raycast nr links zijn pos) + (ratio * startRatio)
@@ -50,4 +52,10 @@ function calc(isRatio:boolean){
 			}
 		}
 	}
+}
+
+function OnTriggerEnter (collider : Collider) {
+    if(collider.gameObject.tag == "LevelEnd"){
+    	Destroy(gameObject);
+    }
 }
