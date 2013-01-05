@@ -24,7 +24,7 @@ function Update () {
 	//transform.position = (raycast nr links zijn pos) + (ratio * startRatio)
 	
 	
-	var translation = Time.deltaTime * -2;
+	var translation = Time.deltaTime * -5;
 	
 	transform.Translate ( 0,0,translation);
 }
