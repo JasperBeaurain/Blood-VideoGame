@@ -58,6 +58,7 @@
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\tapcontrol.js" />
      <Compile Include="Assets\scripts\enemy\enemyScript.js" />
      <Compile Include="Assets\scripts\level\Spawner.js" />
+     <Compile Include="Assets\scripts\level\levelEnd.js" />
      <Compile Include="Assets\scripts\level\levelManager.js" />
      <Compile Include="Assets\scripts\player\playermovement.js" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />

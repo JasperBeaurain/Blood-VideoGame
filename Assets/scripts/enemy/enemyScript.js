@@ -1,9 +1,8 @@
 #pragma strict
 
 private var startRatio:float;
-private var firstTime:boolean;
+private var firstTime:boolean = true;
 function Start () {
-	firstTime = true;
 }
 
 function Update () {
@@ -16,7 +15,7 @@ function Update () {
 	
 	var hitLeftPoint : RaycastHit;
 	var leftXPos:float;
-	if (Physics.Raycast (transform.position, Vector3.left, hitLeftPoint, 150.0)) {
+	if (Physics.Raycast (transform.position, Vector3.left, hitLeftPoint)) {
 		if(hitLeftPoint.transform.gameObject.tag == "levelWall"){
 			leftXPos = hitLeftPoint.point.x;
 			transform.position.x = leftXPos + (calc(false) * startRatio);
@@ -38,8 +37,8 @@ function calc(isRatio:boolean){
 	var tubeWidth:float;
 	var distToLeft:float;
 	var ratio:float;
-	if (Physics.Raycast (transform.position, Vector3.left, hitLeft, 150.0)) {
-		if(Physics.Raycast (transform.position, Vector3.right, hitRight, 150.0)){
+	if (Physics.Raycast (transform.position, Vector3.left, hitLeft)) {
+		if(Physics.Raycast (transform.position, Vector3.right, hitRight)){
 			if(hitLeft.transform.gameObject.tag == "levelWall" && hitRight.transform.gameObject.tag == "levelWall"){
 				tubeWidth = Vector3.Distance(hitLeft.point,hitRight.point);
 				if(isRatio == false){
