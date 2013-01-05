@@ -1,12 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\player\playermovement.js">
-    <Files>
-      <File FileName="Assets\player\playermovement.js" Line="26" Column="4" />
-      <File FileName="Assets\level\levelManager.js" Line="41" Column="4" />
-      <File FileName="Assets\enemyScript.js" Line="27" Column="39" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
