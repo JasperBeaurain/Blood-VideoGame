@@ -1,11 +1,11 @@
 #pragma strict
 
-var player : Transform;
+var player:Transform;
 var enemyPrefab:Transform;
 var spawnInterval:float = 10;
 var spawnDistance:float;
 
-private var firstTime:boolean = true; //is this the first time the update() runs?
+private var firstTime:boolean = true;
 
 private var wallLeftX:float;
 private var wallRightX:float;
@@ -20,13 +20,14 @@ function Start () {
 		if(Physics.Raycast (Vector3(200,0,transform.position.z), Vector3.left, hitRight)){
 			if(hitLeft.transform.gameObject.tag == "levelWall" && hitRight.transform.gameObject.tag == "levelWall"){
 			
-				var left:float = Mathf.Round(hitLeft.point.x*1000)/1000;
-				var right:float = Mathf.Round(hitRight.point.x*1000)/1000;
+				var left:float = Mathf.Round(hitLeft.point.x*1000)/1000;	//limit the number of decimal places
+				var right:float = Mathf.Round(hitRight.point.x*1000)/1000;	//computer will calculate incorrectly otherwise
 				transform.position.x = left + (right - left)/2;
 			}
 		}
 	}
-
+	
+	//spawn an enemy every x seconds, at a random position
 	while (true) {
         yield WaitForSeconds(spawnInterval);
         var posOffset:float = Random.Range(0.6,(wallRightX-wallLeftX)-0.6);
@@ -38,9 +39,13 @@ function Start () {
 
 function Update () {
 
+	//is this the first time the update() runs?
 	if(firstTime){
+		//avoid glitches that might occur when update() would be at the same moment as start()
 		firstTime = false;
 	}else{
+	
+		//keep itself centered within the level
 		var wallHitLeft : RaycastHit;
 		var wallHitRight : RaycastHit;
 		
@@ -56,7 +61,7 @@ function Update () {
 			}
 		}
 	}
-
+	
+	//keep itself x meter in front of the player
 	transform.position.z = player.position.z + spawnDistance;
-
 }

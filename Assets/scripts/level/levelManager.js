@@ -1,18 +1,18 @@
 #pragma strict
-//import System.Collections.Generic;
+import System.Collections.Generic;
 
 
-public var numberOfparts:int = 0;
-public var prefab:Transform;
+var numberOfparts:int = 0;
+var prefab:Transform;
+var recycleDuration:float;
+
 private var nextPos : Vector3;
-
-public var recycleDuration:float;
-var levelQueue : System.Collections.Generic.Queue.<Transform> = new System.Collections.Generic.Queue.<Transform>(numberOfparts);
+private var levelQueue : Queue.<Transform> = new Queue.<Transform>(numberOfparts);
 
 function Start () {
 	
+	//Instantiate all the parts
 	var i:int;
-	
 	for(i=0;i<numberOfparts;i++){
 		var o:Transform;
 		o = Instantiate(prefab,nextPos,prefab.rotation);
@@ -25,6 +25,7 @@ function Start () {
 }
 
 function Update () {
+	//check if recycling is needed
 	var o:Transform;
 	o = levelQueue.Peek();
 	if( o.localPosition.z + recycleDuration < playermovement.distTravelled){
@@ -33,12 +34,10 @@ function Update () {
 }
 
 function recycle(){
+	//Move the closest level part to the end of the stack
 	var o: Transform;
 	o = levelQueue.Dequeue();
 	o.localPosition = nextPos;
-	nextPos.z += (o.localScale.z);
-	
-	//nextPos.x += 6.5; //schuine baan test
-	
+	nextPos.z += (o.localScale.z);	
 	levelQueue.Enqueue(o);
 }

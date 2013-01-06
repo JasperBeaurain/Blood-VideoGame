@@ -1,16 +1,21 @@
 #pragma strict
 
+var enemySpeed:float = -5.0;
 private var startRatio:float;
 private var firstTime:boolean = true;
+
 function Start () {
 }
 
 function Update () {
+
 	if (firstTime){
+		//determine the ratio at the first update
 		startRatio = calc(true);
 		firstTime = false;
 	}
 	
+	//stay centered in the level
 	var hitLeftPoint : RaycastHit;
 	var leftXPos:float;
 	if (Physics.Raycast (transform.position, Vector3.left, hitLeftPoint)) {
@@ -20,13 +25,15 @@ function Update () {
 		}
 	}	
 	
-	var translation = Time.deltaTime * -5;
+	//move forward
+	var translation = enemySpeed * Time.deltaTime;
 	transform.Translate ( 0,0,translation);
 	
+	//despawn 10 meter behind the player
 	var player : GameObject;
 	player = GameObject.Find("player");
 	
-	if (player.transform.position.z - 10 > transform.position.z) {
+	if (transform.position.z + 10 < player.transform.position.z){
 		Destroy(gameObject);
 	}
 }
@@ -43,11 +50,11 @@ function calc(isRatio:boolean){
 			if(hitLeft.transform.gameObject.tag == "levelWall" && hitRight.transform.gameObject.tag == "levelWall"){
 				tubeWidth = Vector3.Distance(hitLeft.point,hitRight.point);
 				if(isRatio == false){
-					return tubeWidth;
+					return tubeWidth;	//return only the width
 				}else{
 					distToLeft = Vector3.Distance(hitLeft.point,transform.position);
 					ratio = distToLeft/tubeWidth;
-					return ratio;
+					return ratio;		//return the ratio
 				}
 			}
 		}
