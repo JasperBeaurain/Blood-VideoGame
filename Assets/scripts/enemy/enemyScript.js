@@ -8,7 +8,6 @@ function Start () {
 }
 
 function Update () {
-
 	if (firstTime){
 		//determine the ratio at the first update
 		startRatio = calc(true);
@@ -21,7 +20,10 @@ function Update () {
 	if (Physics.Raycast (transform.position, Vector3.left, hitLeftPoint)) {
 		if(hitLeftPoint.transform.gameObject.tag == "levelWall"){
 			leftXPos = hitLeftPoint.point.x;
-			transform.position.x = leftXPos + (calc(false) * startRatio);
+			if (calc(false) == 999999999999){
+			}else{
+				transform.position.x = leftXPos + (calc(false) * startRatio);
+			}
 		}
 	}	
 	
@@ -56,7 +58,8 @@ function calc(isRatio:boolean){
 					ratio = distToLeft/tubeWidth;
 					return ratio;		//return the ratio
 				}
-				Debug.Log("--------------------------------");
+			}else{
+				return 999999999999;
 			}
 		}
 	}
