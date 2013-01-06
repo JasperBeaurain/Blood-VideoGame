@@ -25,6 +25,5 @@ function OnTriggerEnter (collider : Collider) {
     if(collider.gameObject.tag == "enemy"){
     	Destroy(collider.gameObject);
     	Destroy(gameObject);
-    	Debug.Log("Hit enemy!");
     }
 }
