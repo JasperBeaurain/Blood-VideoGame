@@ -61,7 +61,8 @@
      <Compile Include="Assets\scripts\level\Spawner.js" />
      <Compile Include="Assets\scripts\level\levelManager.js" />
      <Compile Include="Assets\scripts\player\playermovement.js" />
-     <Compile Include="Assets\scripts\player\shooting\bullet.js" />
+     <Compile Include="Assets\scripts\player\shooting\bulletScript.js" />
+     <Compile Include="Assets\scripts\player\shooting\shooting.js" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
