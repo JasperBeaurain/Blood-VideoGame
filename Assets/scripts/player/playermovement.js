@@ -43,8 +43,8 @@ function OnCollisionEnter(collision : Collision) {
 
 
 function OnTriggerEnter (collider : Collider) {
-	//destroy enemy when you collide with it. only temp. Enemy shooting / interaction is yet to be coded.
-    if(collider.gameObject.tag == "enemy"){
+	//destroy enemy when you collide with it
+   // if(collider.gameObject.tag == "enemy"){
     	Destroy(collider.gameObject);
-    }
+   // }
 }
