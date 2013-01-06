@@ -6,7 +6,7 @@ function Start () {
 }
 
 function Update () {
-	//create a new bullet wjen fireing
+	//create a new bullet when fireing
 	if(Input.GetButtonDown("Fire1")){
 		var bulletPos:Vector3;
 		bulletPos = transform.position;

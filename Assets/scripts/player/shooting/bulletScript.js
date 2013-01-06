@@ -1,17 +1,21 @@
 #pragma strict
-private var player : GameObject;
+
 var shotSpeed:float = 30;
 var maxShotDistance:int = 150;
 
+private var player : GameObject;
+
 function Start () {
+	//get the player
 	player = GameObject.Find("player");
 }
 
 function Update () {
 	
+	//make the bullet move
 	transform.position.z += shotSpeed * Time.deltaTime;
 	
-//	Remove bullet if it hits nothing
+	//Remove bullet if it hits nothing
 	if (transform.position.z > player.transform.position.z + maxShotDistance){
 		Destroy(gameObject);
 	}
