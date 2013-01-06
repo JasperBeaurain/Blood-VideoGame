@@ -3,4 +3,7 @@
 ############
 
 -Shooting
+-Background Music
+-randomizing level parts
+-adding level parts
 -...
