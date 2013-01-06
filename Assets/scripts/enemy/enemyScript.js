@@ -56,6 +56,7 @@ function calc(isRatio:boolean){
 					ratio = distToLeft/tubeWidth;
 					return ratio;		//return the ratio
 				}
+				Debug.Log("--------------------------------");
 			}
 		}
 	}
