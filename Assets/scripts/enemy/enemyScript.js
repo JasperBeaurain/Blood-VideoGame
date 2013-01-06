@@ -10,8 +10,6 @@ function Update () {
 		startRatio = calc(true);
 		firstTime = false;
 	}
-
-
 	
 	var hitLeftPoint : RaycastHit;
 	var leftXPos:float;
@@ -20,14 +18,17 @@ function Update () {
 			leftXPos = hitLeftPoint.point.x;
 			transform.position.x = leftXPos + (calc(false) * startRatio);
 		}
-	}
-	
-	//transform.position = (raycast nr links zijn pos) + (ratio * startRatio)
-	
+	}	
 	
 	var translation = Time.deltaTime * -5;
-	
 	transform.Translate ( 0,0,translation);
+	
+	var player : GameObject;
+	player = GameObject.Find("player");
+	
+	if (player.transform.position.z - 10 > transform.position.z) {
+		Destroy(gameObject);
+	}
 }
 
 function calc(isRatio:boolean){
@@ -51,12 +52,4 @@ function calc(isRatio:boolean){
 			}
 		}
 	}
-}
-
-function OnTriggerEnter (collider : Collider) {
-    if(collider.gameObject.tag == "LevelEnd"){
-    	Destroy(gameObject);
-    	Debug.Log("derp");
-    }
-    Debug.Log("boe");
 }
