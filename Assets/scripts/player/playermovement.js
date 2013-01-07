@@ -4,7 +4,7 @@
 var forwardSpeed: float = 15.0;
 var horizontalSpeed : float = 10.0;
 
-var androidHorizontalSpeed:float;
+var androidHorizontalSpeed:float = 15.0;
 
 public static var distTravelled:float;
 
@@ -36,7 +36,7 @@ function Update () {
 function OnCollisionEnter(collision : Collision) {
     //debug when colliding with the wall, might be needed for future use
     if (collision.gameObject.tag == "levelWall"){
-		Debug.Log("Hit the Wall!");
+		//Debug.Log("Hit the Wall!");
     }
     
 }

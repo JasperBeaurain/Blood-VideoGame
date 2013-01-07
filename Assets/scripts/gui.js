@@ -1,22 +1,22 @@
 #pragma strict
 
-private var backtimes : int;
+var lastTime: float = -1.0;
 
 function Start () {
-	if(Application.platform == RuntimePlatform.Android){
-		backtimes = 0;
-	}
+	
 }
 
 function Update () {
+
 	if(Application.platform == RuntimePlatform.Android){
-		//Close option for Android Version
-		if (Input.GetKey(KeyCode.Escape)){
-			backtimes += 1;
-			if (backtimes == 2){
-		 		backtimes = 0;
-		 		Application.Quit();
-			}
+		//Close option for Android Version	
+		if (Input.GetKeyDown(KeyCode.Escape)){
+			if (Time.time - lastTime < 0.5){
+				Application.Quit();
+   			 }else {
+				lastTime = Time.time;
+   			 }
 		}
 	}
+	
 }
