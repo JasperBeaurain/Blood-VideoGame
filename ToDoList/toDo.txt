@@ -2,13 +2,8 @@
 #   To Do  #
 ############
 
--Shooting
--Background Music
 -sound effects
--randomizing level parts
--adding level parts
--add fogg
+-optimize background music (add ambient sound?)
+-adding level parts (models)
 -fix flashing circle at end of segments
--make app close with back button (android)
--(use less segments ?)
 -...
