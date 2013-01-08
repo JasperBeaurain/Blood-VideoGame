@@ -1,13 +1,14 @@
 #pragma strict
 
-var beatspeed : float = 0.6;
+var beatspeed : float = 1;
 var beat : boolean = true;
 
 function Start () {
 	yield WaitForSeconds (0.1);
 	while(beat){
 		beatspeed -= 0.005;
-		Debug.Log(beatspeed);
+		audio.Play();
+		yield WaitForSeconds (beatspeed/2);
 		audio.Play();
 		yield WaitForSeconds (beatspeed);
 	}
