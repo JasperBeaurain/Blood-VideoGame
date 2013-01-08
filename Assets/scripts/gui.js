@@ -1,7 +1,9 @@
 #pragma strict
 
 private var lastTime: float = -1.0;
+private var spawnedbullets : int = 0;
 var player : Transform;
+var bullet : Transform;
 
 function Start () {
 	
@@ -18,21 +20,42 @@ function Update () {
 				lastTime = Time.time;
    			 }
 		}
-		//Speedy Cheat for android
+		//Cheats for android
 		if (Input.GetKeyDown(KeyCode.Menu)){
-			if (player.GetComponent(playermovement).forwardSpeed == 15){
-				player.GetComponent(playermovement).forwardSpeed = 50;
+			if (Time.time - lastTime < 0.2){
+				SpeedyCheat();
 			}else {
-				player.GetComponent(playermovement).forwardSpeed = 15;
+				BulletCheat();
+				lastTime = Time.time;
 			}
 		}
 	}
-	//Speedy Cheat for windows
+	
+	//Cheats for windows
 	if (Input.GetKeyDown(KeyCode.W)){
-		if (player.GetComponent(playermovement).forwardSpeed == 15){
-			player.GetComponent(playermovement).forwardSpeed = 50;
-		}else {
-			player.GetComponent(playermovement).forwardSpeed = 15;
-		}
+		SpeedyCheat();
+	}else if (Input.GetKeyDown(KeyCode.X)){
+		BulletCheat();
 	}
+}
+
+function SpeedyCheat() {
+	if (player.GetComponent(playermovement).forwardSpeed == 15){
+		player.GetComponent(playermovement).forwardSpeed = 50;
+	}else {
+		player.GetComponent(playermovement).forwardSpeed = 15;
+	}
+}
+
+function BulletCheat() {
+	while(spawnedbullets < 16){
+		spawnedbullets += 1;
+		// create bullets
+		var bulletPos:Vector3;
+		bulletPos = player.transform.position;
+		bulletPos.z += 5;
+		bulletPos.x = -4 + spawnedbullets/2;
+		Instantiate(bullet,bulletPos,bullet.rotation);
+	}
+	spawnedbullets = 0;
 }
