@@ -1,7 +1,7 @@
 #pragma strict
 
 var beatspeed : float = 1;
-var beat : boolean = true;
+var beat : boolean;
 
 function Start () {
 	yield WaitForSeconds (0.1);
@@ -15,9 +15,11 @@ function Start () {
 }
 
 function Update () {
-	if (beatspeed < 0.2){
-		beat = false;
-	}else {
-		beat = true;
+	if (beat){
+		if (beatspeed < 0.2){
+			beat = false;
+		}else {
+			beat = true;
+		}
 	}
 }

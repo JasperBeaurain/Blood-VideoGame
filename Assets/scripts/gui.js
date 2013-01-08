@@ -48,13 +48,12 @@ function SpeedyCheat() {
 }
 
 function BulletCheat() {
-	var randZpos : float = Random.Range(0,9);
 	while(spawnedbullets < 14){ 
 		spawnedbullets += 1;
 		// create bullets
 		var bulletPos:Vector3;
 		bulletPos = player.transform.position;
-		bulletPos.z += 3 + randZpos;
+		bulletPos.z += 0.5;
 		bulletPos.x = -3.5 + spawnedbullets/2;
 		Instantiate(bullet,bulletPos,bullet.rotation);
 	}

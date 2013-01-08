@@ -62,6 +62,7 @@
      <Compile Include="Assets\scripts\level\levelManager.js" />
      <Compile Include="Assets\scripts\player\heartbeat.js" />
      <Compile Include="Assets\scripts\player\playermovement.js" />
+     <Compile Include="Assets\scripts\player\powerups.js" />
      <Compile Include="Assets\scripts\player\shooting\bulletScript.js" />
      <Compile Include="Assets\scripts\player\shooting\shooting.js" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
