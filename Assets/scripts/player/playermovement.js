@@ -43,8 +43,10 @@ function OnCollisionEnter(collision : Collision) {
 
 
 function OnTriggerEnter (collider : Collider) {
-	//destroy enemy when you collide with it
-   // if(collider.gameObject.tag == "enemy"){
-    	Destroy(collider.gameObject);
-   // }
+	//add a powerdown effect
+    if(collider.gameObject.tag == "enemy"){
+    	GetComponent(powers).coldown = true;
+    }
+    //destroy entity when you collide with it
+    Destroy(collider.gameObject);
 }
