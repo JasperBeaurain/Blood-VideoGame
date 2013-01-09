@@ -26,6 +26,7 @@ function Update () {
 				SpeedyCheat();
 			}else {
 				BulletCheat();
+				PowerCheat();
 				lastTime = Time.time;
 			}
 		}
@@ -36,6 +37,8 @@ function Update () {
 		SpeedyCheat();
 	}else if (Input.GetKeyDown(KeyCode.X)){
 		BulletCheat();
+	}else if (Input.GetKeyDown(KeyCode.C)){
+		PowerCheat();
 	}
 }
 
@@ -58,4 +61,14 @@ function BulletCheat() {
 		Instantiate(bullet,bulletPos,bullet.rotation);
 	}
 	spawnedbullets = 0;
+}
+
+function PowerCheat() {
+	player.GetComponent(powers).power1 = 1;
+	player.GetComponent(powers).power2 = 1;
+	player.GetComponent(powers).power3 = 1;
+	player.GetComponent(powers).setpower1(1);
+	player.GetComponent(powers).setpower2(1);
+	player.GetComponent(powers).setpower3(1);
+	
 }
