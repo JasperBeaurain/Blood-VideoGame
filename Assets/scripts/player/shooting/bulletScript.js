@@ -27,8 +27,5 @@ function OnTriggerEnter (collider : Collider) {
     	Destroy(collider.gameObject);
     	Destroy(gameObject);
     	//Debug.Log("Shot an enemy!");
-    }else if(collider.gameObject.tag == "powerup" || collider.gameObject.tag == "powerdown"){
-    	Destroy(gameObject);
-    	//Debug.Log("Shot an power!");
     }
 }
