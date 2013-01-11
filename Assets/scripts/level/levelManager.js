@@ -45,17 +45,16 @@ function Update () {
 
 function calcPrefab(number:int){
 	switch(number){
-			case 1:
-				return prefab1;
-			case 2:
-				return prefab1;
-			case 3:
-				return prefab2;
-			case 4:
-				return prefab3;
-			case 5:
-				return prefab4;
-			case 6:
-				return prefab5;
-		}
+		case 1:
+			return prefab1;
+		case 2:
+			return prefab2;
+		case 3:
+			return prefab3;
+		case 4:
+			return prefab4;
+		case 5:
+			return prefab5;
+	}
+	return;
 }

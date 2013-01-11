@@ -63,4 +63,5 @@ function calc(isRatio:boolean){
 			}
 		}
 	}
+	return;
 }
