@@ -4,7 +4,7 @@ var GUIhealth: Transform;
 var GUIscore: Transform; 
 var GUIpowers: Transform;
 
-var heath: int;
+var health: int;
 var score: int;
 var powers: String;
 
@@ -15,7 +15,7 @@ function Start () {
 }
 
 function Update () {
-	GUIhealth.guiText.text = heath;
-	GUIscore.guiText.text = score;
+	GUIhealth.guiText.text = health.ToString();
+	GUIscore.guiText.text = score.ToString();
 	GUIpowers.guiText.text = powers;
 }
