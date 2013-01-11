@@ -1,8 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\player\shooting\bulletScript.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\player\playermovement.js">
     <Files>
-      <File FileName="Assets\scripts\player\shooting\bulletScript.js" Line="30" Column="91" />
+      <File FileName="Assets\scripts\entities\MoveScript.js" Line="66" Column="9" />
+      <File FileName="Assets\scripts\level\levelManager.js" Line="52" Column="2" />
+      <File FileName="Assets\scripts\player\playermovement.js" Line="33" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

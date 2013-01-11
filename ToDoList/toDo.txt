@@ -6,4 +6,10 @@
 -optimize background music (add ambient sound?)
 -adding level parts (models)
 -fix flashing circle at end of segments
+-add power functions
+-make menus
+-make gui
+-fix crash on powerup when power1=1 && power2=1
+-powers spawn in center
+(-make small story)
 -...

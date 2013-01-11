@@ -56,6 +56,7 @@
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\SmoothFollow2D.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\ZoomCamera.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\tapcontrol.js" />
+     <Compile Include="Assets\scripts\GUI.js" />
      <Compile Include="Assets\scripts\buttoncontrol.js" />
      <Compile Include="Assets\scripts\entities\MoveScript.js" />
      <Compile Include="Assets\scripts\entities\bulletScript.js" />
