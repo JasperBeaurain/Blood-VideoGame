@@ -38,10 +38,12 @@ function Update () {
 	if (transform.position.z + 10 < player.transform.position.z){
 		Destroy(gameObject);
 		
-		//lower health
-		var gui : GameObject;
-		gui = GameObject.Find("GUI");
-		gui.GetComponent(GUIscript).health -= 1;
+		if (transform.tag == "enemy"){
+			//lower health
+			var gui : GameObject;
+			gui = GameObject.Find("GUI");
+			gui.GetComponent(GUIscript).health -= 1;
+		}
 	}
 }
 

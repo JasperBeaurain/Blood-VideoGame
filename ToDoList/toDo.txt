@@ -3,13 +3,32 @@
 ############
 
 -sound effects
--optimize background music (add ambient sound?)
+	-optimize background music (add ambient sound?)
+	-add shooting sound
+
 -adding level parts (models)
--fix flashing circle at end of segments
+	-playership
+	-vein corners
+	- white bloodcells
+	-bacteria
+	-red bloodcells
+
 -add power functions
+	-add shield (+ shield cheat)
+	-add 3 bullets gun
+	-faster shooting
+	-longer cooldowns
+-add cooldowns to powers
+
 -make menus
--make gui
--fix crash on powerup when power1=1 && power2=1
--powers spawn in center
-(-make small story)
--...
+-add a way to die
+-start easier, slowly getting harder
+-skin gui
+-make comic (small story + how to play)
+-make second moving method (disable tilting)
+-make leaderboards
+
+-fix powers spawn in center
+-fix flashing circle at end of segments
+-fix spawning enemies behind powers (or inside)
+-fix unreachable code warnings (calcPrefab in levelManager.js)

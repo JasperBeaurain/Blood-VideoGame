@@ -25,7 +25,7 @@ function Update () {
 			if (Time.time - lastTime < 0.2){
 				SpeedyCheat();
 			}else {
-				BulletCheat();
+				ShieldCheat();
 				PowerCheat();
 				lastTime = Time.time;
 			}
@@ -36,7 +36,7 @@ function Update () {
 	if (Input.GetKeyDown(KeyCode.W)){
 		SpeedyCheat();
 	}else if (Input.GetKeyDown(KeyCode.X)){
-		BulletCheat();
+		ShieldCheat();
 	}else if (Input.GetKeyDown(KeyCode.C)){
 		PowerCheat();
 	}
@@ -50,17 +50,8 @@ function SpeedyCheat() {
 	}
 }
 
-function BulletCheat() {
-	while(spawnedbullets < 14){ 
-		spawnedbullets += 1;
-		// create bullets
-		var bulletPos:Vector3;
-		bulletPos = player.transform.position;
-		bulletPos.z += 0.5;
-		bulletPos.x = -3.5 + spawnedbullets/2;
-		Instantiate(bullet,bulletPos,bullet.rotation);
-	}
-	spawnedbullets = 0;
+function ShieldCheat() {
+	//add permanent shield
 }
 
 function PowerCheat() {

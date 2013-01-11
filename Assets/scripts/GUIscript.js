@@ -18,4 +18,8 @@ function Update () {
 	GUIhealth.guiText.text = health.ToString();
 	GUIscore.guiText.text = score.ToString();
 	GUIpowers.guiText.text = powers;
+	
+	if (GUIhealth.guiText.text == 0){
+		Debug.Log("You died!");		//End of the line (=dead)
+	}
 }
