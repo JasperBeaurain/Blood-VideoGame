@@ -2,6 +2,7 @@
 
 private var decidepower : int = 0;
 private var colup : boolean = false;
+var spawner : Transform;
 var coldown : boolean = false;		//do not config in unity editor!
 var power1 : int = 0;
 var power2 : int = 0;
@@ -12,8 +13,8 @@ function Start () {
 }
 
 function Update () {
+	/////////////// POWERUP ///////////////
 	if (colup){
-	
 		decidepower = Random.Range(1,4);
 		
 			//Check to see what powers are already active so you can add to others instead
@@ -23,8 +24,8 @@ function Update () {
 			decidepower = 3;}
 		if (power3 == 1 && decidepower == 3){
 			decidepower = 1;}
-		if (power1 == 1 && power2 == 1 && power3 == 1){	//check to see if all powers are active
-			GetComponent(PowerSpawner).stoppowerspawn = true;
+		if (power1 == 1 && power2 == 1 && power3 == 1){		//check to see if all powers are active (prevents +2)
+			spawner.GetComponent(PowerSpawner).stoppowerupspawn = true;
 			colup = false;
 			return;
 		}
@@ -61,9 +62,15 @@ function Update () {
 				setpower3(0);	
 			}
 		}
-	colup = false;		//stop update
+		colup = false;		//stop update
+		
+		if (power1 == 1 && power2 == 1 && power3 == 1){		//check to see if all powers are active
+			spawner.GetComponent(PowerSpawner).stoppowerupspawn = true;
+		}
+		
+		/////////////// POWERDOWN ///////////////
 	}else if (coldown){
-	
+		spawner.GetComponent(PowerSpawner).stoppowerupspawn = false;
 		decidepower = Random.Range(1,4);
 		
 		if (power1 == -1 && decidepower == 1){
@@ -73,17 +80,20 @@ function Update () {
 		if (power3 == -1 && decidepower == 3){
 			decidepower = 1;}
 		if (power1 == -1 && power2 == -1 && power3 == -1){
-		coldown = false;
-		Debug.Log("You died!");		//End of the line (=dead)
-		return;
+			Debug.Log("You died!");		//End of the line (=dead)
+			coldown = false;
+			return;
 		}
 		
 		if (power1 == 1){
 			decidepower = 1;
-		}else if (power2 == 1){
+		}
+		if (power2 == 1){
 			decidepower = 2;
-		}else if (power3 == 1){
-			decidepower = 3;}
+		}
+		if (power3 == 1){
+			decidepower = 3;
+		}
 		
 		if (decidepower == 1){
 			if (power1 == 0){
@@ -105,13 +115,22 @@ function Update () {
 			if (power3 == 0){
 				power3 -= 1;
 				setpower3(-1);
-			}else if (power3 == -1){
+			}else if (power3 == 1){
 				power3 -= 1;
 				setpower3(0);		
 			}
 		}
 		coldown = false;
+		
+		if (power1 == -1 && power2 == -1 && power3 == -1){
+			Debug.Log("You died!");		//End of the line (=dead)
+		}
 	}
+	
+	/////////////// EXTRA CHECK FOR CHEAT ///////////////
+	if (power1 == 1 && power2 == 1 && power3 == 1){		//check to see if all powers are active (crash after cheat)
+			spawner.GetComponent(PowerSpawner).stoppowerupspawn = true;
+		}
 }
 
 function OnTriggerEnter(collider : Collider) {
