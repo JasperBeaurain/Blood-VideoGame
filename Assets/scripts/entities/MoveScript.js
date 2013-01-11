@@ -37,6 +37,9 @@ function Update () {
 	
 	if (transform.position.z + 10 < player.transform.position.z){
 		Destroy(gameObject);
+		
+		//lower health
+		player.GetComponent(GUI).health -= 1;
 	}
 }
 
