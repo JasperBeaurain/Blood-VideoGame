@@ -3,6 +3,7 @@
 var enemySpeed:float = -5.0;
 private var startRatio:float;
 private var firstTime:boolean = true;
+private var player : GameObject;
 
 function Start () {
 }
@@ -32,14 +33,15 @@ function Update () {
 	transform.Translate ( 0,0,translation);
 	
 	//despawn 10 meter behind the player
-	var player : GameObject;
 	player = GameObject.Find("player");
 	
 	if (transform.position.z + 10 < player.transform.position.z){
 		Destroy(gameObject);
 		
 		//lower health
-		player.GetComponent(GUI).health -= 1;
+		var gui : GameObject;
+		gui = GameObject.Find("GUI");
+		gui.GetComponent(GUIscript).health -= 1;
 	}
 }
 

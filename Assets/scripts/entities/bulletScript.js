@@ -2,7 +2,7 @@
 
 var shotSpeed:float = 30;
 var maxShotDistance:int = 150;
-
+private var gui : GameObject;
 private var player : GameObject;
 
 function Start () {
@@ -29,7 +29,8 @@ function OnTriggerEnter (collider : Collider) {
     	//Debug.Log("Shot an enemy!");
     	
     	//add to score
-    	player.GetComponent(GUI).score += 1;
+		gui = GameObject.Find("GUI");
+    	gui.GetComponent(GUIscript).score += 1;
     	
     }else if(collider.gameObject.tag == "powerup" || collider.gameObject.tag == "powerdown"){
     	Destroy(gameObject);
