@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\scripts\GUIscript.js" />
+     <Compile Include="Assets\scripts\MainMenu.js" />
      <Compile Include="Assets\scripts\buttoncontrol.js" />
      <Compile Include="Assets\scripts\entities\MoveScript.js" />
      <Compile Include="Assets\scripts\entities\bulletScript.js" />

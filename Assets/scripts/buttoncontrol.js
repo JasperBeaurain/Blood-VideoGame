@@ -12,10 +12,10 @@ function Start () {
 function Update () {
 
 	if(Application.platform == RuntimePlatform.Android){
-		//Close option for Android Version	
+		//Back to menu option for Android Version	
 		if (Input.GetKeyDown(KeyCode.Escape)){
 			if (Time.time - lastTime < 0.5){
-				Application.Quit();
+				Application.LoadLevel(0);
    			 }else {
 				lastTime = Time.time;
    			 }
@@ -30,15 +30,17 @@ function Update () {
 				lastTime = Time.time;
 			}
 		}
-	}
-	
-	//Cheats for windows
-	if (Input.GetKeyDown(KeyCode.W)){
-		SpeedyCheat();
-	}else if (Input.GetKeyDown(KeyCode.X)){
-		ShieldCheat();
-	}else if (Input.GetKeyDown(KeyCode.C)){
-		PowerCheat();
+	}else{
+		//Cheats for windows
+		if (Input.GetKeyDown(KeyCode.W)){
+			SpeedyCheat();
+		}else if (Input.GetKeyDown(KeyCode.X)){
+			ShieldCheat();
+		}else if (Input.GetKeyDown(KeyCode.C)){
+			PowerCheat();
+		}else if(Input.GetKeyDown(KeyCode.Escape)){
+			Application.LoadLevel(0);
+		}
 	}
 }
 

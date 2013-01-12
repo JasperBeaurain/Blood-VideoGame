@@ -56,5 +56,5 @@ function calcPrefab(number:int){
 		case 5:
 			return prefab5;
 	}
-	return;
+	return null;
 }
