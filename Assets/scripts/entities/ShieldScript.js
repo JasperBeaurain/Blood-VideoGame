@@ -6,5 +6,5 @@ function Start () {
 }
 
 function Update () {
-	Transform.position = player.transform.position;
+	
 }
