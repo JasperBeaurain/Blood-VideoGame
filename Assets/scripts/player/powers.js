@@ -4,7 +4,7 @@ private var decidepower : int = 0;
 private var colup : boolean = false;
 private var gui : GameObject;
 var spawner : Transform;
-var coldown : boolean = false;		//do not config in unity editor!
+private var coldown : boolean = false;		//do not config in unity editor!
 var power1 : int = 0;
 var power2 : int = 0;
 var power3 : int = 0;
@@ -63,11 +63,12 @@ function Update () {
 				setpower3(0);	
 			}
 		}
-		colup = false;		//stop update
 		
 		if (power1 == 1 && power2 == 1 && power3 == 1){		//check to see if all powers are active
 			spawner.GetComponent(PowerSpawner).stoppowerupspawn = true;
 		}
+		
+		colup = false;		//stop update
 		
 		/////////////// POWERDOWN ///////////////
 	}else if (coldown){
@@ -128,14 +129,19 @@ function Update () {
 		}
 	}
 	
-	/////////////// EXTRA CHECK FOR CHEAT ///////////////
+	/////////////// EXTRA CHECK FOR POWERUPS ///////////////
 	if (power1 == 1 && power2 == 1 && power3 == 1){		//check to see if all powers are active (crash after cheat)
-			spawner.GetComponent(PowerSpawner).stoppowerupspawn = true;
+		spawner.GetComponent(PowerSpawner).stoppowerupspawn = true;
+		var powerup : GameObject = GameObject.FindWithTag("powerup");
+		if (powerup){
+			Destroy(powerup);
 		}
+	}
 		
 	//show powers in GUI
 	gui = GameObject.Find("GUI");
-    	gui.GetComponent(GUIscript).powers = power1+" "+power2+" "+power3;
+    gui.GetComponent(GUIscript).powers = power1+" "+power2+" "+power3;
+
 }
 
 function OnTriggerEnter(collider : Collider) {

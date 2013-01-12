@@ -5,7 +5,7 @@ var forwardSpeed: float = 15.0;
 var horizontalSpeed : float = 10.0;
 
 var androidHorizontalSpeed:float = 15.0;
-
+private var gui : GameObject;
 public static var distTravelled:float;
 
 function Start () {
@@ -43,9 +43,10 @@ function OnCollisionEnter(collision : Collision) {
 
 
 function OnTriggerEnter (collider : Collider) {
-	//add a powerdown effect
+	//lower health
     if(collider.gameObject.tag == "enemy"){
-    	GetComponent(powers).coldown = true;
+    	gui = GameObject.Find("GUI");
+		gui.GetComponent(GUIscript).health -= 1;
     }
     //destroy entity when you collide with it
     Destroy(collider.gameObject);

@@ -13,22 +13,22 @@ private var wallRightX:float;
 function Start () {
 	//spawn an power every x seconds, at a random position
 	while (true) {
+		upordown = Random.Range(0,spawndownnumber);
 		if (!stoppowerupspawn){		//do not spawn powerups when you have all of them
-			upordown = Random.Range(0,spawndownnumber);
 			if (upordown == 0){		//powerups
 				yield WaitForSeconds(powerspawnInterval);
 	  			var powerupposOffset:float = Random.Range(0.6,(wallRightX-wallLeftX)-0);
 	  		  	var powerupspawnPos:Vector3 = Vector3(wallLeftX + powerupposOffset ,0,transform.position.z);
 	 		   	Instantiate( powerupPrefab, powerupspawnPos, powerupPrefab.rotation);
 			}
-		}
-	    if (upordown > 0) {	//powerdown
+    	}
+    	if (upordown > 0) {	//powerdown
 	    	yield WaitForSeconds(powerspawnInterval);
-	  		var powerdownposOffset:float = Random.Range(0.6,(wallRightX-wallLeftX)-0);
+			var powerdownposOffset:float = Random.Range(0.6,(wallRightX-wallLeftX)-0);
 	    	var powerdownspawnPos:Vector3 = Vector3(wallLeftX + powerdownposOffset ,0,transform.position.z);
 	    	Instantiate( powerdownPrefab, powerdownspawnPos, powerupPrefab.rotation);
-	    }
-    }
+		}
+	}
 }
 
 function Update () {
