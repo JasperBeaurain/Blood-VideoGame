@@ -4,6 +4,7 @@ private var lastTime: float = -1.0;
 private var spawnedbullets : int = 0;
 var player : Transform;
 var bullet : Transform;
+var shield : Transform;
 
 function Start () {
 	
@@ -53,7 +54,17 @@ function SpeedyCheat() {
 }
 
 function ShieldCheat() {
-	//add permanent shield
+
+	var existingShield : GameObject = GameObject.FindWithTag("shield");
+	
+	if (existingShield){
+		Destroy(existingShield);
+	}else {
+		var ShieldPos:Vector3;
+		ShieldPos = player.transform.position;
+		ShieldPos.z += 2;
+		Instantiate(shield,ShieldPos,shield.rotation);
+	}
 }
 
 function PowerCheat() {
@@ -63,5 +74,4 @@ function PowerCheat() {
 	player.GetComponent(powers).setpower1(1);
 	player.GetComponent(powers).setpower2(1);
 	player.GetComponent(powers).setpower3(1);
-	
 }

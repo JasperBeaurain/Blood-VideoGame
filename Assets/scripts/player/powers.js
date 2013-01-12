@@ -1,10 +1,10 @@
 #pragma strict
 
 private var decidepower : int = 0;
-private var colup : boolean = false;
 private var gui : GameObject;
 var spawner : Transform;
-private var coldown : boolean = false;		//do not config in unity editor!
+var colup : boolean = false;		//do not config in unity editor!
+var coldown : boolean = false;		//do not config in unity editor!
 var power1 : int = 0;
 var power2 : int = 0;
 var power3 : int = 0;

@@ -48,6 +48,7 @@
      <Compile Include="Assets\scripts\MainMenu.js" />
      <Compile Include="Assets\scripts\buttoncontrol.js" />
      <Compile Include="Assets\scripts\entities\MoveScript.js" />
+     <Compile Include="Assets\scripts\entities\ShieldScript.js" />
      <Compile Include="Assets\scripts\entities\bulletScript.js" />
      <Compile Include="Assets\scripts\level\PowerSpawner.js" />
      <Compile Include="Assets\scripts\level\Spawner.js" />

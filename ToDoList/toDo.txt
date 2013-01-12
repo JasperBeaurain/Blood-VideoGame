@@ -14,7 +14,7 @@
 	-red bloodcells
 
 -add power functions
-	-add shield (+ shield cheat)
+	-add shield fn
 	-add 3 bullets gun
 	-faster shooting
 	-longer cooldowns

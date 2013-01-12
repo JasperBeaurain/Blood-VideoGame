@@ -14,7 +14,7 @@ function Update () {
 			//create a new bullet when fireing
 			var bulletPos:Vector3;
 			bulletPos = transform.position;
-			bulletPos.z += 0.5;
+			bulletPos.z += 1;
 			Instantiate(bullet,bulletPos,bullet.rotation);
    		 }
 	}
