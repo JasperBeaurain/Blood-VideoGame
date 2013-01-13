@@ -5,6 +5,8 @@ private var gui : GameObject;
 var spawner : Transform;
 var colup : boolean = false;		//do not config in unity editor!
 var coldown : boolean = false;		//do not config in unity editor!
+var player : Transform;
+var shield : Transform;
 var power1 : int = 0;
 var power2 : int = 0;
 var power3 : int = 0;
@@ -82,9 +84,9 @@ function Update () {
 		if (power3 == -1 && decidepower == 3){
 			decidepower = 1;}
 		if (power1 == -1 && power2 == -1 && power3 == -1){
-			Debug.Log("You died!");		//End of the line (=dead)
+			//Debug.Log("You died!");		//End of the line (=dead)
 			coldown = false;
-			return;
+			Application.LoadLevel(0);
 		}
 		
 		if (power1 == 1){
@@ -125,7 +127,8 @@ function Update () {
 		coldown = false;
 		
 		if (power1 == -1 && power2 == -1 && power3 == -1){
-			Debug.Log("You died!");		//End of the line (=dead)
+			//Debug.Log("You died!");		//End of the line (=dead)
+			Application.LoadLevel(0);
 		}
 	}
 	
@@ -156,12 +159,18 @@ function OnTriggerEnter(collider : Collider) {
 /////////////// SETTING POWERS ///////////////
 
 
-function setpower1(type : int){
+function setpower1(type : int){			//spawn shield
 	if (type == 1){
-		//add powerup code
+		var ShieldPos:Vector3;
+		ShieldPos = player.transform.position;
+		ShieldPos.z += 2;
+		Instantiate(shield,ShieldPos,shield.rotation);
+		player.GetComponent(shooting).bulletExtraZPos = 2.5;
 		
 	}else if (type == 0){
-		//add normalizer code
+		var existingShield : GameObject = GameObject.FindWithTag("shield");
+		Destroy(existingShield);
+		player.GetComponent(shooting).bulletExtraZPos = 1;
 		
 	}else if (type == -1){
 		//add powerdown code
@@ -169,25 +178,25 @@ function setpower1(type : int){
 	}
 }
 
-function setpower2(type : int){
+function setpower2(type : int){			//faster shooting
 	if (type == 1){
-		//add powerup code
+		player.GetComponent(shooting).shootdelay = 0.1;
 		
 	}else if (type == 0){
-		//add normalizer code
+		player.GetComponent(shooting).shootdelay = 0.2;
 		
 	}else if (type == -1){
-		//add powerdown code
+		player.GetComponent(shooting).shootdelay = 0.5;
 		
 	}
 }
 
-function setpower3(type : int){
+function setpower3(type : int){			//triple shooting
 	if (type == 1){
-		//add powerup code
+		player.GetComponent(shooting).shoottype = "triple";
 		
 	}else if (type == 0){
-		//add normalizer code
+		player.GetComponent(shooting).shoottype = "single";
 		
 	}else if (type == -1){
 		//add powerdown code

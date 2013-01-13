@@ -27,7 +27,6 @@ function Update () {
 				SpeedyCheat();
 			}else {
 				ShieldCheat();
-				PowerCheat();
 				lastTime = Time.time;
 			}
 		}
@@ -37,8 +36,6 @@ function Update () {
 			SpeedyCheat();
 		}else if (Input.GetKeyDown(KeyCode.X)){
 			ShieldCheat();
-		}else if (Input.GetKeyDown(KeyCode.C)){
-			PowerCheat();
 		}else if(Input.GetKeyDown(KeyCode.Escape)){
 			Application.LoadLevel(0);
 		}
@@ -59,19 +56,12 @@ function ShieldCheat() {
 	
 	if (existingShield){
 		Destroy(existingShield);
+		player.GetComponent(shooting).bulletExtraZPos = 1;
 	}else {
 		var ShieldPos:Vector3;
 		ShieldPos = player.transform.position;
 		ShieldPos.z += 2;
 		Instantiate(shield,ShieldPos,shield.rotation);
+		player.GetComponent(shooting).bulletExtraZPos = 2.5;
 	}
-}
-
-function PowerCheat() {
-	player.GetComponent(powers).power1 = 1;
-	player.GetComponent(powers).power2 = 1;
-	player.GetComponent(powers).power3 = 1;
-	player.GetComponent(powers).setpower1(1);
-	player.GetComponent(powers).setpower2(1);
-	player.GetComponent(powers).setpower3(1);
 }

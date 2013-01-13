@@ -14,14 +14,12 @@
 	-red bloodcells
 
 -add power functions
-	-add shield fn
-	-add 3 bullets gun
-	-faster shooting
+	-add normal life
 	-longer cooldowns
 -add cooldowns to powers
+-add negative effects
 
--make menus
--add a way to die
+-make menus (highscores, options, ondeath msg)
 -start easier, slowly getting harder
 -skin gui
 -make comic (small story + how to play)

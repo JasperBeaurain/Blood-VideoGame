@@ -9,7 +9,7 @@ var score: int;
 var powers: String;
 
 function Start () {
-	health = 100;
+	health = 3;
 	score = 0;
 	powers = "0 0 0";
 }
@@ -19,7 +19,8 @@ function Update () {
 	GUIscore.guiText.text = score.ToString();
 	GUIpowers.guiText.text = powers;
 	
-	if (GUIhealth.guiText.text == 0){
-		Debug.Log("You died!");		//End of the line (=dead)
+	if (health <= 0){
+		//Debug.Log("You died!");		//End of the line (=dead)
+		Application.LoadLevel(0);
 	}
 }
