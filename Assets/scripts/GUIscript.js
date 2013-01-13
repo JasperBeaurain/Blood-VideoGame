@@ -9,9 +9,9 @@ var score: int;
 var powers: String;
 
 function Start () {
-	health = 3;
+	health = 100;
 	score = 0;
-	powers = "0 0 0";
+	powers = "0 0 0 0";
 }
 
 function Update () {
