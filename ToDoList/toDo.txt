@@ -14,6 +14,7 @@
 	-red bloodcells
 
 -cooldown loop not stopped if taken powerdown (result: always -1)
+-better way to warn for cooldown to end
 
 -make menus (highscores, options, ondeath msg)
 -start easier, slowly getting harder
@@ -23,6 +24,8 @@
 -make second moving method (disable tilting)
 -make leaderboards
 
+-fix shield inside wall
+-fix bullets spawn before shield (only on android)
 -fix powers spawn in center
 -fix flashing circle at end of segments
 -fix spawning enemies behind powers (or inside)
