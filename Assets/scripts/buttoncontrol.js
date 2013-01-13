@@ -44,8 +44,8 @@ function Update () {
 
 function SpeedyCheat() {
 	if (player.GetComponent(playermovement).forwardSpeed == 15){
-		player.GetComponent(playermovement).forwardSpeed = 50;
-		bullet.GetComponent(bulletScript).shotSpeed = 85;
+		player.GetComponent(playermovement).forwardSpeed += 35;
+		bullet.GetComponent(bulletScript).shotSpeed += 35;
 	}else {
 		player.GetComponent(playermovement).forwardSpeed = 15;
 		bullet.GetComponent(bulletScript).shotSpeed = 50;

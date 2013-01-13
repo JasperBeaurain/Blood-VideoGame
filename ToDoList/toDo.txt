@@ -13,15 +13,12 @@
 	-bacteria
 	-red bloodcells
 
--add power functions
-	-add normal life
-	-longer cooldowns
--add cooldowns to powers
--add negative effects
+-cooldown loop not stopped if taken powerdown (result: always -1)
 
 -make menus (highscores, options, ondeath msg)
 -start easier, slowly getting harder
 -skin gui
+-skin menus (diffrent font?, colors)
 -make comic (small story + how to play)
 -make second moving method (disable tilting)
 -make leaderboards

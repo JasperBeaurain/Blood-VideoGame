@@ -2,18 +2,27 @@
 
 private var decidepower : int = 0;
 private var gui : GameObject;
+private var startcooldown : boolean;
+private var warncooldown1 : String;
+private var warncooldown2 : String;
+private var warncooldown3 : String;
+private var warncooldown4 : String;
 var spawner : Transform;
 var colup : boolean = false;		//do not config in unity editor!
 var coldown : boolean = false;		//do not config in unity editor!
 var player : Transform;
 var shield : Transform;
+var PowerupCooldown : int = 5;
 var power1 : int = 0;
 var power2 : int = 0;
 var power3 : int = 0;
 var power4 : int = 0;
 
 function Start () {
-
+	warncooldown1 = "0";
+	warncooldown2 = "0";
+	warncooldown3 = "0";
+	warncooldown4 = "0";
 }
 
 function Update () {
@@ -169,7 +178,11 @@ function Update () {
 	//show powers in GUI
 	gui = GameObject.Find("GUI");
     gui.GetComponent(GUIscript).powers = power1+" "+power2+" "+power3+" "+power4;
-
+    //show cooldowns in GUI
+    gui.GetComponent(GUIscript).warncooldown1 = warncooldown1;
+    gui.GetComponent(GUIscript).warncooldown2 = warncooldown2;
+    gui.GetComponent(GUIscript).warncooldown3 = warncooldown3;
+    gui.GetComponent(GUIscript).warncooldown4 = warncooldown4;
 }
 
 function OnTriggerEnter(collider : Collider) {
@@ -191,13 +204,9 @@ function setpower1(type : int){			//shield
 		ShieldPos.z += 2;
 		Instantiate(shield,ShieldPos,shield.rotation);
 		player.GetComponent(shooting).bulletExtraZPos = 2.5;
-		
+		cooldown(1);
 	}else if (type == 0){
-		if (coldown){
-			var existingShield : GameObject = GameObject.FindWithTag("shield");
-			Destroy(existingShield);
-			player.GetComponent(shooting).bulletExtraZPos = 1;
-		}
+		normalize(1);
 	}else if (type == -1){
 		//Extra Life
 	}
@@ -206,9 +215,9 @@ function setpower1(type : int){			//shield
 function setpower2(type : int){			//shootingspeed
 	if (type == 1){
 		player.GetComponent(shooting).shootdelay = 0.1;
-		
+		cooldown(2);
 	}else if (type == 0){
-		player.GetComponent(shooting).shootdelay = 0.2;
+		normalize(2);
 		
 	}else if (type == -1){
 		//Extra Life
@@ -219,9 +228,9 @@ function setpower2(type : int){			//shootingspeed
 function setpower3(type : int){			//bullets
 	if (type == 1){
 		player.GetComponent(shooting).shoottype = "triple";
-		
+		cooldown(3);
 	}else if (type == 0){
-		player.GetComponent(shooting).shoottype = "single";
+		normalize(3);
 		
 	}else if (type == -1){
 		//Extra Life
@@ -230,12 +239,57 @@ function setpower3(type : int){			//bullets
 
 function setpower4(type : int){			//cooldowns
 	if (type == 1){
-		//longer cooldowns
-		
+		PowerupCooldown = 10;
+		cooldown(4);
 	}else if (type == 0){
-		//normal cooldown
+		normalize(4);
 		
 	}else if (type == -1){
-		//Extra Life
+		PowerupCooldown = 2;
+	}
+}
+
+function cooldown(power:int){
+		yield WaitForSeconds(PowerupCooldown - 3);
+		if (power == 1){
+			warncooldown1 = "!";
+		}else if (power == 2){
+			warncooldown2 = "!";
+		}else if (power == 3){
+			warncooldown3 = "!";
+		}else if (power == 4){
+			warncooldown4 = "!";
+		}
+		yield WaitForSeconds(3);
+		if (power == 1){
+			power1 -= 1;
+			warncooldown1 = "0";
+			setpower1(0);
+		}else if (power == 2){
+			power2 -= 1;
+			warncooldown2 = "0";
+			setpower2(0);
+		}else if (power == 3){
+			power3 -= 1;
+			warncooldown3 = "0";
+			setpower3(0);
+		}else if (power == 4){
+			power4 -= 1;
+			warncooldown4 = "0";
+			setpower4(0);
+		}
+}
+
+function normalize(power:int){
+	if (power == 1){
+		var existingShield : GameObject = GameObject.FindWithTag("shield");
+		Destroy(existingShield);
+		player.GetComponent(shooting).bulletExtraZPos = 1;
+	}else if (power == 2){
+			player.GetComponent(shooting).shootdelay = 0.2;
+	}else if (power == 3){
+			player.GetComponent(shooting).shoottype = "single";
+	}else if (power == 4){
+			PowerupCooldown = 5;
 	}
 }
