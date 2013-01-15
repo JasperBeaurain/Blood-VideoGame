@@ -1,7 +1,7 @@
 #pragma strict
 
 var shotSpeed:float = 30;
-var maxShotDistance:int = 150;
+var maxShotDistance:int = 25;
 private var gui : GameObject;
 private var player : GameObject;
 

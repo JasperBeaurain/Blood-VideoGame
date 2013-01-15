@@ -9,12 +9,9 @@
 -adding level parts (models)
 	-playership
 	-vein corners
-	- white bloodcells
+	-white bloodcells
 	-bacteria
 	-red bloodcells
-
--cooldown loop not stopped if taken powerdown (result: always -1)
--better way to warn for cooldown to end
 
 -make menus (highscores, options, ondeath msg)
 -start easier, slowly getting harder
@@ -26,6 +23,7 @@
 
 -fix shield inside wall
 -fix bullets spawn before shield (only on android)
+-fix occasionally spawn outiside tubes (first tube doesn't spawn?)
 -fix powers spawn in center
 -fix flashing circle at end of segments
 -fix spawning enemies behind powers (or inside)
