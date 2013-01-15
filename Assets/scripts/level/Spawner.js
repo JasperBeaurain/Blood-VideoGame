@@ -30,7 +30,7 @@ function Start () {
 	//spawn an enemy every x seconds, at a random position
 	while (true) {
         yield WaitForSeconds(spawnInterval);
-        var posOffset:float = Random.Range(0.6,(wallRightX-wallLeftX)-0.6);
+        var posOffset:float = Random.Range(0.7,(wallRightX-wallLeftX)-0.7);
         var spawnPos:Vector3;
         spawnPos = Vector3(wallLeftX + posOffset ,0,transform.position.z);
         Instantiate( enemyPrefab, spawnPos, enemyPrefab.rotation);

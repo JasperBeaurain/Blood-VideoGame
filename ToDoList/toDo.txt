@@ -17,7 +17,7 @@
 -make menus (highscores, options, ondeath msg)
 -start easier, slowly getting harder
 -skin gui
--skin menus (diffrent font?, colors)
+-skin menus (different font?, colors)
 -make comic (small story + how to play)
 -make second moving method (disable tilting)
 -make leaderboards
@@ -25,8 +25,7 @@
 -fix shield inside wall
 -fix bullets spawn before shield (only on android)
 -fix dual shield while using cheat
--fix occasionally spawn outiside tubes (first tube doesn't spawn?)
--fix powers spawn in center
+-fix occasionally spawn outiside tubes (first tube doesn't spawn? on android only?)
 -fix flashing circle at end of segments
 -fix spawning enemies behind powers (or inside)
 -fix unreachable code warnings (calcPrefab in levelManager.js)

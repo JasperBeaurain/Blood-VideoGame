@@ -211,7 +211,6 @@ function Update () {
     }else {
     	guipowers.guiText.fontStyle = FontStyle.Normal;
     }
-    Debug.Log("");
 }
 
 function OnTriggerEnter(collider : Collider) {
