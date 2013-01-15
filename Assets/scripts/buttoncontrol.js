@@ -64,6 +64,6 @@ function ShieldCheat() {
 		ShieldPos = player.transform.position;
 		ShieldPos.z += 2;
 		Instantiate(shield,ShieldPos,shield.rotation);
-		player.GetComponent(shooting).bulletExtraZPos = 2.5;
+		player.GetComponent(shooting).bulletExtraZPos = 3;
 	}
 }

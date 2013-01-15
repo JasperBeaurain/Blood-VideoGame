@@ -7,11 +7,11 @@ private var warncooldown2 : boolean = false;
 private var warncooldown3 : boolean = false;
 private var warncooldown4 : boolean = false;
 private var warncooldown5 : boolean = false;
-var spawner : Transform;
 var colup : boolean = false;		//do not config in unity editor!
 var coldown : boolean = false;		//do not config in unity editor!
 var player : Transform;
 var bullet : Transform;
+var spawner : Transform;
 var shield : Transform;
 var PowerupCooldown : int = 10;
 var power1 : int = 0;
@@ -40,7 +40,7 @@ function Update () {
 		if (power5 == 1 && decidepower == 5){
 			decidepower = 1;}
 		if (power1 == 1 && power2 == 1 && power3 == 1 && power4 == 1 && power5 == 1){		//check to see if all powers are active (prevents +2)
-			spawner.GetComponent(PowerSpawner).stoppowerupspawn = true;
+			spawner.GetComponent(PowerSpawner).stoppowerupspawn = true;			//stop the spawning of powerups and deletes existing ones
 			colup = false;
 			return;
 		}
@@ -53,7 +53,7 @@ function Update () {
 			decidepower = 3;
 		}else if (power4 == -1){
 			decidepower = 4;
-		}else if (power5 == -1){
+		}else if (power5 == -1){		//with multiple powers, always use power 5
 			decidepower = 5;}
 		
 		if (decidepower == 1){	//check what power 
@@ -120,9 +120,7 @@ function Update () {
 		if (power5 == -1 && decidepower == 5){
 			decidepower = 1;}
 		if (power1 == -1 && power2 == -1 && power3 == -1 && power4 == -1 && power5 == -1){
-			//Debug.Log("You died!");		//End of the line (=dead)
-			coldown = false;
-			Application.LoadLevel(0);
+			Application.LoadLevel(0);	//End of the line (=dead)
 		}
 		
 		if (power1 == 1){
@@ -140,10 +138,11 @@ function Update () {
 		if (power5 == 1){
 			decidepower = 5;
 		}
+		
 		if (decidepower == 1){
 			if (power1 == 0){
 				power1 -= 1;
-				setpower1(-1);
+				//setpower1(-1);		//optional powerdown effect
 			}else if (power1 == 1){
 				power1 -= 1;
 				warncooldown1 = false;
@@ -152,7 +151,6 @@ function Update () {
 		}else if (decidepower == 2){
 			if (power2 == 0){
 				power2 -= 1;
-				setpower2(-1);
 			}else if (power2 == 1){
 				power2 -= 1;
 				warncooldown2 = false;
@@ -161,7 +159,6 @@ function Update () {
 		}else if (decidepower == 3){
 			if (power3 == 0){
 				power3 -= 1;
-				setpower3(-1);
 			}else if (power3 == 1){
 				power3 -= 1;
 				warncooldown3 = false;
@@ -170,7 +167,6 @@ function Update () {
 		}else if (decidepower == 4){
 			if (power4 == 0){
 				power4 -= 1;
-				setpower4(-1);
 			}else if (power4 == 1){
 				power4 -= 1;
 				warncooldown4 = false;
@@ -179,7 +175,6 @@ function Update () {
 		}else if (decidepower == 5){
 			if (power5 == 0){
 				power5 -= 1;
-				setpower5(-1);
 			}else if (power5 == 1){
 				power5 -= 1;
 				warncooldown5 = false;
@@ -189,8 +184,7 @@ function Update () {
 		coldown = false;
 		
 		if (power1 == -1 && power2 == -1 && power3 == -1 && power4 == -1 && power5 == -1){
-			//Debug.Log("You died!");		//End of the line (=dead)
-			Application.LoadLevel(0);
+			Application.LoadLevel(0);		//End of the line (=dead)
 		}
 	}
 	

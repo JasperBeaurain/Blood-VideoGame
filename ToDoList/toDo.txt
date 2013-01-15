@@ -12,6 +12,7 @@
 	-white bloodcells
 	-bacteria
 	-red bloodcells
+	-shield (forcefield?)
 
 -make menus (highscores, options, ondeath msg)
 -start easier, slowly getting harder
@@ -23,6 +24,7 @@
 
 -fix shield inside wall
 -fix bullets spawn before shield (only on android)
+-fix dual shield while using cheat
 -fix occasionally spawn outiside tubes (first tube doesn't spawn?)
 -fix powers spawn in center
 -fix flashing circle at end of segments
