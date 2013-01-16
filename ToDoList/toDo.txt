@@ -15,17 +15,16 @@
 	-red bloodcells
 	-shield (forcefield?)
 
--redo heath
 -make menus (highscores, options, ondeath msg, pause menu?)
 -start easier, slowly getting harder
--skin gui
+-skin gui (power icons, cardiogram)
 -skin menus (different font?, colors)
 -make comic (small story + how to play)
 -make second moving method (disable tilting)
--make leaderboards
+-make leaderboards & score
 
 -fix shield & triple bullets inside wall
-(-fix dual shield while using cheat)
--fix occasionally spawn outiside tubes (first tube doesn't spawn?) any idea why?
+-fix first tube doenst spawn on first retry
 -fix flashing circle at end of segments
 -fix unreachable code warnings (calcPrefab in levelManager.js)
+(-fix powers glitch in wall after shooting besides it)

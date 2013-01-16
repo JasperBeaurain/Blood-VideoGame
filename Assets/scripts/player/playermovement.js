@@ -43,10 +43,10 @@ function OnCollisionEnter(collision : Collision) {
 
 
 function OnTriggerEnter (collider : Collider) {
-	//lower health
+	//health
     if(collider.gameObject.tag == "enemy"){
     	gui = GameObject.Find("GUI");
-		gui.GetComponent(GUIscript).health -= 1;
+		gui.GetComponent(GUIscript).health += 1;
     }
     //destroy entity when you collide with it
     Destroy(collider.gameObject);

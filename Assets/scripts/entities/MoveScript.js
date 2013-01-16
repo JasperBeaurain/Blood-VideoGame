@@ -42,7 +42,7 @@ function Update () {
 			//lower health
 			var gui : GameObject;
 			gui = GameObject.Find("GUI");
-			gui.GetComponent(GUIscript).health -= 1;
+			gui.GetComponent(GUIscript).health += 1;
 		}
 	}
 }
