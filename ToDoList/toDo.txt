@@ -5,6 +5,7 @@
 -sound effects
 	-optimize background music (add ambient sound?)
 	-add shooting sound
+	-make heartbeat speed up according to health
 
 -adding level parts (models)
 	-playership
@@ -14,7 +15,8 @@
 	-red bloodcells
 	-shield (forcefield?)
 
--make menus (highscores, options, ondeath msg)
+-redo heath
+-make menus (highscores, options, ondeath msg, pause menu?)
 -start easier, slowly getting harder
 -skin gui
 -skin menus (different font?, colors)
@@ -22,10 +24,10 @@
 -make second moving method (disable tilting)
 -make leaderboards
 
--fix shield inside wall
+-fix shield & triple bullets inside wall
 -fix bullets spawn before shield (only on android)
--fix dual shield while using cheat
--fix occasionally spawn outiside tubes (first tube doesn't spawn? on android only?)
+(-fix dual shield while using cheat)
+-fix occasionally spawn outiside tubes (first tube doesn't spawn?)
 -fix flashing circle at end of segments
 -fix spawning enemies behind powers (or inside)
 -fix unreachable code warnings (calcPrefab in levelManager.js)
