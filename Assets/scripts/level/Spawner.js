@@ -10,6 +10,8 @@ private var firstTime:boolean = true;
 private var wallLeftX:float;
 private var wallRightX:float;
 
+public static var lastEnemyPos:Vector3;
+
 function Start () {
 	
 	//position itself inside the level
@@ -33,7 +35,16 @@ function Start () {
         var posOffset:float = Random.Range(0.7,(wallRightX-wallLeftX)-0.7);
         var spawnPos:Vector3;
         spawnPos = Vector3(wallLeftX + posOffset ,0,transform.position.z);
-        Instantiate( enemyPrefab, spawnPos, enemyPrefab.rotation);
+        
+        if(Mathf.Abs(spawnPos.z - PowerSpawner.lastPowerPos.z) < 5){
+			if(Mathf.Abs(spawnPos.x - PowerSpawner.lastPowerPos.x) > 2){
+				Instantiate( enemyPrefab, spawnPos, enemyPrefab.rotation);
+        		lastEnemyPos = spawnPos;
+			}
+	 	}else{
+	 		Instantiate( enemyPrefab, spawnPos, enemyPrefab.rotation);
+       		lastEnemyPos = spawnPos;	 
+	 	}
     }
 }
 

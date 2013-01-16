@@ -11,6 +11,8 @@ private var wallLeftX:float;
 private var wallRightX:float;
 private var firstTime:boolean = true;
 
+public static var lastPowerPos:Vector3;
+
 function Start () {
 	//spawn an power every x seconds, at a random position
 	while (true) {
@@ -20,14 +22,20 @@ function Start () {
 				yield WaitForSeconds(powerspawnInterval);
 	  			var powerupposOffset:float = Random.Range(0.7,(wallRightX-wallLeftX)-0.7);
 	  		  	var powerupspawnPos:Vector3 = Vector3(wallLeftX + powerupposOffset ,0,transform.position.z);
-	 		   	Instantiate( powerupPrefab, powerupspawnPos, powerupPrefab.rotation);
+	    		if(Mathf.Abs(powerupspawnPos.x - Spawner.lastEnemyPos.x) > 2){
+	    			Instantiate( powerupPrefab, powerupspawnPos, powerupPrefab.rotation);
+	    			lastPowerPos = powerupspawnPos;
+				}
 			}
     	}
     	if (upordown > 0) {	//powerdown
 	    	yield WaitForSeconds(powerspawnInterval);
 			var powerdownposOffset:float = Random.Range(1.3,(wallRightX-wallLeftX)-1.3);
 	    	var powerdownspawnPos:Vector3 = Vector3(wallLeftX + powerdownposOffset ,0,transform.position.z);
-	    	Instantiate( powerdownPrefab, powerdownspawnPos, powerupPrefab.rotation);
+    		if(Mathf.Abs(powerdownspawnPos.x - Spawner.lastEnemyPos.x) > 2){
+    			Instantiate( powerdownPrefab, powerdownspawnPos, powerupPrefab.rotation);
+    			lastPowerPos = powerdownspawnPos;
+			}
 		}
 	}
 }

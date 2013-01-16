@@ -25,9 +25,7 @@
 -make leaderboards
 
 -fix shield & triple bullets inside wall
--fix bullets spawn before shield (only on android)
 (-fix dual shield while using cheat)
--fix occasionally spawn outiside tubes (first tube doesn't spawn?)
+-fix occasionally spawn outiside tubes (first tube doesn't spawn?) any idea why?
 -fix flashing circle at end of segments
--fix spawning enemies behind powers (or inside)
 -fix unreachable code warnings (calcPrefab in levelManager.js)
