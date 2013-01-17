@@ -9,7 +9,9 @@ function Start () {
 function Update () {
 	var translation = Time.deltaTime * player.GetComponent(playermovement).forwardSpeed;
 	transform.Translate ( 0,0,translation);
-	transform.position.x = player.transform.position.x;
+	//if (right < transform.position.x && left > transform.position.x){
+		transform.position.x = player.transform.position.x;
+	//}
 }
 
 function OnTriggerEnter (collider : Collider) {

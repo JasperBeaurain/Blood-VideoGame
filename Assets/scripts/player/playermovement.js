@@ -46,7 +46,7 @@ function OnTriggerEnter (collider : Collider) {
 	//health
     if(collider.gameObject.tag == "enemy"){
     	gui = GameObject.Find("GUI");
-		gui.GetComponent(GUIscript).health += 1;
+		gui.GetComponent(GUIscript).health += 2;
     }
     //destroy entity when you collide with it
     Destroy(collider.gameObject);

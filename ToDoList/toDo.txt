@@ -22,9 +22,12 @@
 -make comic (small story + how to play)
 -make second moving method (disable tilting)
 -make leaderboards & score
+-change database user permissions
+-make particles spawn inside cornered tubes
 
 -fix shield & triple bullets inside wall
--fix first tube doenst spawn on first retry
+-fix some powerdowns do nothing
+-fix first tube does not spawn on first retry
 -fix flashing circle at end of segments
 -fix unreachable code warnings (calcPrefab in levelManager.js)
 (-fix powers glitch in wall after shooting besides it)

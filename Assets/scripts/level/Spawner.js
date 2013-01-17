@@ -36,8 +36,8 @@ function Start () {
         var spawnPos:Vector3;
         spawnPos = Vector3(wallLeftX + posOffset ,0,transform.position.z);
         
-        if(Mathf.Abs(spawnPos.z - PowerSpawner.lastPowerPos.z) < 5){
-			if(Mathf.Abs(spawnPos.x - PowerSpawner.lastPowerPos.x) > 2){
+        if(Mathf.Abs(spawnPos.z - PowerSpawner.lastPowerPos.z) < 7){
+			if(Mathf.Abs(spawnPos.x - PowerSpawner.lastPowerPos.x) > 3){
 				Instantiate( enemyPrefab, spawnPos, enemyPrefab.rotation);
         		lastEnemyPos = spawnPos;
 			}

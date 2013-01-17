@@ -24,7 +24,7 @@ function OnMouseUp() {
 			Application.Quit();
 			break;
 	}
-	yield WaitForSeconds(0.2);
+	yield WaitForSeconds(0.1);
 	renderer.material.color = Color.white;
 }
 function Update(){
