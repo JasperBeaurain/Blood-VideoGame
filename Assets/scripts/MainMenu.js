@@ -1,6 +1,7 @@
 #pragma strict
 enum MenuItems{Play,Highscores,Options,Quit}
 var menuItem:MenuItems;
+var guitextscores:Transform;
 
 function OnMouseEnter() {
 	renderer.material.color = Color.red;
@@ -16,7 +17,7 @@ function OnMouseUp() {
 			Time.timeScale = 1;
 			break;
 		case MenuItems.Highscores:
-			
+			guitextscores.GetComponent(scoreHandler).SendMessage("getScores");
 			break;
 		case MenuItems.Options:
 			
