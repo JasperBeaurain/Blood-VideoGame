@@ -15,7 +15,7 @@
 	-red bloodcells
 	-shield (forcefield?)
 
--make menus (highscores, options, ondeath msg, pause menu?)
+-make menus (highscores, options)
 -start easier, slowly getting harder
 -skin gui (power icons, cardiogram)
 -skin menus (different font?, colors)

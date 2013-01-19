@@ -12,7 +12,7 @@ function Start () {
 }
 
 function Update () {
-	if(!Gui.GetComponent(GUIscript).paused){
+	if(!Gui.GetComponent(GUIscript).paused && !Gui.GetComponent(GUIscript).dead ){
 		if(Application.platform == RuntimePlatform.Android){
 			//Back to menu option for Android Version	
 			if (Input.GetKeyDown(KeyCode.Escape)){
@@ -42,9 +42,11 @@ function Update () {
 			}
 		}
 	}else{
+		if(!Gui.GetComponent(GUIscript).dead){
 			if(Input.GetKeyDown(KeyCode.Escape)){
 				Gui.GetComponent(GUIscript).SendMessage("Pause");
 			}
+		}
 	}
 }
 

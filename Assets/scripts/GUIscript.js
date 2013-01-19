@@ -13,6 +13,7 @@ var cooldown: String;
 var style:GUIStyle;
 
 public static var paused = false;
+public static var dead = false;
 
 function Start () {
 }
@@ -24,7 +25,7 @@ function Update () {
 	
 	if (health >= 220){
 		//Debug.Log("You died!");		//End of the line (=dead)
-		Application.LoadLevel(0);
+		toggleDead();
 	}
 }
 
@@ -36,6 +37,18 @@ function OnGUI(){
 			Pause();
 		}
 		if(GUI.Button(Rect(Screen.width/2,Screen.height/2 + 50,100,20),"Main Menu")){
+			Pause();
+			Application.LoadLevel(0);
+		}
+	}
+	if(dead){
+		GUI.Box(Rect(0,0,Screen.width,Screen.height),"",style);
+		GUI.Label(Rect(Screen.width/2,Screen.height/2,150,20),"You died!");
+		GUI.Label(Rect(Screen.width/2,Screen.height/2 + 25,150,20),"Score: -----");
+		if(GUI.Button(Rect(Screen.width/2,Screen.height/2 + 50,100,20),"Main Menu")){
+			dead = false;
+			health = 120;
+			score = 0;
 			Application.LoadLevel(0);
 		}
 	}
@@ -48,5 +61,12 @@ function Pause(){
 	}else{
 		Time.timeScale = 0;
 		paused = true;
+	}
+}
+
+function toggleDead(){
+	if(!dead){
+		Time.timeScale = 0;
+		dead = true;
 	}
 }
