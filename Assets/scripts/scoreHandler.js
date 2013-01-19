@@ -1,8 +1,9 @@
-private var secretKey="mySecretKey"; // Edit this value and make sure it's the same as the one stored on the server
+ // Edit this value and make sure it's the same as the one stored on the server
 var addScoreUrl="http://www.tehgamingcrew.com/bloodgame/highscores/addscore.php?"; //be sure to add a ? to your url
 var highscoreUrl="http://www.tehgamingcrew.com/bloodgame/highscores/display.php";    
-
+private var SecretKey;
 function Start() {
+	SecretKey = secretkey.key;
 }
  
 function postScore() {
@@ -10,7 +11,7 @@ function postScore() {
     // Supply it with a string representing the players name and the players score.
     var name = "Jasper9041";
     var score = 10;
-    var hash=MD5.Md5Sum(name + score + secretKey);
+    var hash=MD5.Md5Sum(name + score + SecretKey);
  
     var highscore_url = addScoreUrl + "name=" + WWW.EscapeURL(name) + "&score=" + score + "&hash=" + hash;
  

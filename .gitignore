@@ -28,6 +28,8 @@ Library/previews
 
 Library/guidmapper
 
+Assets/secretkey
+
 Temp
 
 *.csproj

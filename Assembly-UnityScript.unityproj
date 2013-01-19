@@ -60,6 +60,7 @@
      <Compile Include="Assets\scripts\player\powers.js" />
      <Compile Include="Assets\scripts\player\shooting.js" />
      <Compile Include="Assets\scripts\scoreHandler.js" />
+     <Compile Include="Assets\secretkey\secretkey.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
