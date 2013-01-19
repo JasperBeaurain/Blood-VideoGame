@@ -51,3 +51,8 @@ function OnTriggerEnter (collider : Collider) {
     //destroy entity when you collide with it
     Destroy(collider.gameObject);
 }
+
+function OnDestroy(){
+	//reset distance travelled when script is destroyed
+	distTravelled = 0;
+}

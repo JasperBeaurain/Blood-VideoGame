@@ -27,7 +27,6 @@
 
 -fix shield & triple bullets inside wall
 -fix some powerdowns do nothing
--fix first tube does not spawn on first retry
 -fix flashing circle at end of segments
 -fix unreachable code warnings (calcPrefab in levelManager.js)
 (-fix powers glitch in wall after shooting besides it)
