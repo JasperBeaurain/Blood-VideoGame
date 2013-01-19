@@ -13,6 +13,7 @@ function OnMouseUp() {
 	switch(menuItem){
 		case MenuItems.Play:
 			Application.LoadLevel(1);
+			Time.timeScale = 1;
 			break;
 		case MenuItems.Highscores:
 			

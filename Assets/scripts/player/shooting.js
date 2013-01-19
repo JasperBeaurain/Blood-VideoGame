@@ -11,21 +11,23 @@ function Start () {
 }
 
 function Update () {
-	if(Input.GetButton("Fire1")){
-		if (Time.time - lastTime > shootdelay){
-			lastTime = Time.time;
-			//create a new bullet when fireing
-			bulletPos = transform.position;
-			bulletPos.z += bulletExtraZPos;
-			if (shoottype == "triple"){		//or create triple ones when powerup is active
-				Instantiate(bullet,bulletPos,bullet.rotation);
-				bulletPos.x += 0.75;
-				Instantiate(bullet,bulletPos,bullet.rotation);
-				bulletPos.x -= 1.5;
-				Instantiate(bullet,bulletPos,bullet.rotation);
-   		 	}else {
-   		 		Instantiate(bullet,bulletPos,bullet.rotation);
-   		 	}
-   		 }
+	if(!GUIscript.paused){
+		if(Input.GetButton("Fire1")){
+			if (Time.time - lastTime > shootdelay){
+				lastTime = Time.time;
+				//create a new bullet when fireing
+				bulletPos = transform.position;
+				bulletPos.z += bulletExtraZPos;
+				if (shoottype == "triple"){		//or create triple ones when powerup is active
+					Instantiate(bullet,bulletPos,bullet.rotation);
+					bulletPos.x += 0.75;
+					Instantiate(bullet,bulletPos,bullet.rotation);
+					bulletPos.x -= 1.5;
+					Instantiate(bullet,bulletPos,bullet.rotation);
+	   		 	}else {
+	   		 		Instantiate(bullet,bulletPos,bullet.rotation);
+	   		 	}
+	   		 }
+		}
 	}
 }
