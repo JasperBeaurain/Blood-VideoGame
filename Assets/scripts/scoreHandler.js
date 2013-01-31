@@ -1,4 +1,4 @@
- // Edit this value and make sure it's the same as the one stored on the server
+// Edit this value and make sure it's the same as the one stored on the server
 var addScoreUrl="http://www.tehgamingcrew.com/bloodgame/highscores/addscore.php?"; //be sure to add a ? to your url
 var highscoreUrl="http://www.tehgamingcrew.com/bloodgame/highscores/display.php";    
 private var SecretKey;
@@ -16,7 +16,7 @@ function postScore() {
     var highscore_url = addScoreUrl + "name=" + WWW.EscapeURL(name) + "&score=" + score + "&hash=" + hash;
  
     // Post the URL to the site and create a download object to get the result.
-    hs_post = WWW(highscore_url);
+    var hs_post = WWW(highscore_url);
     yield hs_post; // Wait until the download is done
     Debug.Log(highscore_url);
     if(hs_post.error) {
@@ -27,7 +27,7 @@ function postScore() {
 // Get the scores from the MySQL DB to display in a GUIText.
 function getScores() {
     gameObject.guiText.text = "Loading Scores";
-    hs_get = WWW(highscoreUrl);
+    var hs_get = WWW(highscoreUrl);
     yield hs_get;
  
     if(hs_get.error) {
