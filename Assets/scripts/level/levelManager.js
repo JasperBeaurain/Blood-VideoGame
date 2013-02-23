@@ -23,7 +23,8 @@ function Start () {
 		var o:Transform;
 		rand = Random.Range(1,6);
 		o = Instantiate(calcPrefab(rand),nextPos,calcPrefab(rand).rotation);
-		nextPos.z += o.localScale.z;
+		//nextPos.z += o.localScale.z;
+		nextPos.z += o.renderer.bounds.size.z;
 		levelQueue.Enqueue(o);
 	}
 }
