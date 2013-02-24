@@ -1,16 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\scoreHandler.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\level\PowerSpawner.js">
     <Files>
+      <File FileName="Assets\scripts\level\levelManager.js" Line="27" Column="41" />
       <File FileName="Assets\scripts\scoreHandler.js" Line="6" Column="28" />
       <File FileName="Assets\scripts\GUIscript.js" Line="1" Column="1" />
-      <File FileName="Assets\scripts\level\levelManager.js" Line="1" Column="1" />
       <File FileName="Assets\scripts\buttoncontrol.js" Line="1" Column="1" />
       <File FileName="Assets\scripts\player\playermovement.js" Line="1" Column="1" />
       <File FileName="Assets\scripts\MainMenu.js" Line="1" Column="1" />
       <File FileName="Assets\scripts\player\shooting.js" Line="1" Column="1" />
       <File FileName="Assets\scripts\entities\MoveScript.js" Line="1" Column="1" />
       <File FileName="Assets\secretkey\secretkey.js" Line="1" Column="1" />
+      <File FileName="Assets\scripts\level\PowerSpawner.js" Line="55" Column="74" />
+      <File FileName="Assets\scripts\level\Spawner.js" Line="64" Column="74" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

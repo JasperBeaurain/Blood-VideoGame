@@ -35,7 +35,8 @@ function Update () {
 	if( o.localPosition.z + recycleDuration < playermovement.distTravelled){
 		o =	levelQueue.Dequeue();
 		var deadObjLength:float;
-		deadObjLength = o.localScale.z;
+		//deadObjLength = o.localScale.z;
+		deadObjLength = o.renderer.bounds.size.z;
 		Destroy(o.gameObject);
 		rand = Random.Range(1,6);
 		o = Instantiate(calcPrefab(rand),nextPos,calcPrefab(rand).rotation);
