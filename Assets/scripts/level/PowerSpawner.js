@@ -23,7 +23,8 @@ function Start () {
 	  			var powerupposOffset:float = Random.Range(0.7,(wallRightX-wallLeftX)-0.7);
 	  		  	var powerupspawnPos:Vector3 = Vector3(wallLeftX + powerupposOffset ,0,transform.position.z);
 	    		if(Mathf.Abs(powerupspawnPos.x - Spawner.lastEnemyPos.x) > 2){
-	    			Instantiate( powerupPrefab, powerupspawnPos, powerupPrefab.rotation);
+	    			//Instantiate( powerupPrefab, powerupspawnPos, powerupPrefab.rotation);
+	    			Instantiate( powerupPrefab, powerupspawnPos, Quaternion.Euler(Random.Range(-45,45),Random.Range(-45,45),Random.Range(-45,45)));
 	    			lastPowerPos = powerupspawnPos;
 				}
 			}
@@ -33,7 +34,9 @@ function Start () {
 			var powerdownposOffset:float = Random.Range(1.3,(wallRightX-wallLeftX)-1.3);
 	    	var powerdownspawnPos:Vector3 = Vector3(wallLeftX + powerdownposOffset ,0,transform.position.z);
     		if(Mathf.Abs(powerdownspawnPos.x - Spawner.lastEnemyPos.x) > 2){
-    			Instantiate( powerdownPrefab, powerdownspawnPos, powerupPrefab.rotation);
+    			//Instantiate( powerdownPrefab, powerdownspawnPos, powerupPrefab.rotation);
+    			//random rotation
+    			Instantiate( powerdownPrefab, powerdownspawnPos, Quaternion.Euler(Random.Range(-45,45),Random.Range(-45,45),Random.Range(-45,45)));
     			lastPowerPos = powerdownspawnPos;
 			}
 		}

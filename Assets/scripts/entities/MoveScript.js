@@ -30,7 +30,7 @@ function Update () {
 	
 	//move forward
 	var translation = enemySpeed * Time.deltaTime;
-	transform.Translate ( 0,0,translation);
+	transform.Translate ( 0,0,translation,Space.World);
 	
 	//despawn 10 meter behind the player
 	player = GameObject.Find("player");
