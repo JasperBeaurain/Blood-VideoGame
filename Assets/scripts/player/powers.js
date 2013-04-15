@@ -236,7 +236,7 @@ function setpower1(type : int){			//shield
 	}else if (type == 0){	//on powerdown while having powerup (normal again)
 		var existingShield : GameObject = GameObject.FindWithTag("shield");
 		Destroy(existingShield);
-		player.GetComponent(shooting).bulletExtraZPos = 1;
+		player.GetComponent(shooting).bulletExtraZPos = 1.75;
 	}else if (type == -1){
 		//Extra Life
 	}

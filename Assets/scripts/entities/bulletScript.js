@@ -13,7 +13,8 @@ function Start () {
 function Update () {
 	
 	//make the bullet move
-	transform.position.z += shotSpeed * Time.deltaTime;
+	//transform.position.z += shotSpeed * Time.deltaTime;
+	transform.Translate(Vector3.forward * shotSpeed *Time.deltaTime);
 	
 	//Remove bullet if it hits nothing
 	if (transform.position.z > player.transform.position.z + maxShotDistance){
@@ -35,5 +36,7 @@ function OnTriggerEnter (collider : Collider) {
     }else if(collider.gameObject.tag == "powerup" || collider.gameObject.tag == "powerdown"){
     	Destroy(gameObject);
     	//Debug.Log("Shot an power!");
+    }else if(collider.gameObject.tag == "levelWall"){
+    	Destroy(gameObject);
     }
 }

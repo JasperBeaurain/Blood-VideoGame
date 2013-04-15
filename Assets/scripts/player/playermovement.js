@@ -5,6 +5,8 @@ var forwardSpeed: float = 15.0;
 var horizontalSpeed : float = 10.0;
 
 var androidHorizontalSpeed:float = 15.0;
+var target:Transform;
+var guide:Transform;
 private var gui : GameObject;
 public static var distTravelled:float;
 
@@ -16,17 +18,18 @@ function Update () {
 
  	if(Application.platform == RuntimePlatform.Android){
 		//Android Version
-		var cali : Vector3 = Vector3.zero;
-		cali.x = -Input.acceleration.y;
-		rigidbody.velocity = cali * androidHorizontalSpeed;
+		rigidbody.velocity = -Input.acceleration.y * androidHorizontalSpeed * transform.right;
  	}else{
 	 	//Pc version!
-		var x = Input.GetAxis("Horizontal") * horizontalSpeed;
-		rigidbody.velocity = Vector3(x,0,0);
+		rigidbody.velocity = Input.GetAxis("Horizontal") * horizontalSpeed *transform.right;
  	}
-	
 	var translation = Time.deltaTime * forwardSpeed;
-	transform.Translate ( 0,0,translation);
+	transform.Translate (0,0,translation);
+	
+	//rotate along with level
+	var dist:float;
+	dist = transform.position.x - guide.position.x;
+	transform.LookAt(Vector3(target.position.x+dist,target.position.y,target.position.z));
 	
 	//keep track of the current distance the player has travelled
 	distTravelled = transform.position.z;
@@ -47,9 +50,10 @@ function OnTriggerEnter (collider : Collider) {
     if(collider.gameObject.tag == "enemy"){
     	gui = GameObject.Find("GUI");
 		gui.GetComponent(GUIscript).health += 2;
+		Destroy(collider.gameObject);
     }
-    //destroy entity when you collide with it
-    Destroy(collider.gameObject);
+    	//destroy entity when you collide with it
+    	Destroy(collider.gameObject);
 }
 
 function OnDestroy(){
