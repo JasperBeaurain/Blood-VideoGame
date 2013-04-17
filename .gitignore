@@ -30,6 +30,14 @@ Library/guidmapper
 
 Assets/secretkey
 
+Assets/Entities/imports/Materials.meta
+
+Assets/Textures/Thumbs.db.meta
+
+Assets/Textures/icons/Thumbs.db.meta
+
+Assets/Textures/icons/desktop.ini.meta
+
 Temp
 
 *.csproj
