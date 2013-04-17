@@ -4,8 +4,10 @@ var enemySpeed:float = -5.0;
 private var startRatio:float;
 private var firstTime:boolean = true;
 private var player : GameObject;
+private var startRotation:Quaternion;
 
 function Start () {
+	startRotation = transform.rotation;
 }
 
 function Update () {
@@ -32,11 +34,11 @@ function Update () {
 	var translation = enemySpeed * Time.deltaTime;
 	transform.Translate ( 0,0,translation,Space.World);
 	
+	//keep rotating
+	transform.Rotate(Vector3(startRotation.x,startRotation.y,startRotation.z) * Random.Range(50,75) * Time.deltaTime);
+	
 	//find player
 	player = GameObject.Find("player");
-	
-	//look at the player
-	transform.LookAt(player.transform.position);
 	
 	//despawn 10 meter behind the player
 	

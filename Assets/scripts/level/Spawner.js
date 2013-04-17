@@ -38,11 +38,11 @@ function Start () {
         
         if(Mathf.Abs(spawnPos.z - PowerSpawner.lastPowerPos.z) < 7){
 			if(Mathf.Abs(spawnPos.x - PowerSpawner.lastPowerPos.x) > 3){
-				Instantiate( enemyPrefab, spawnPos, enemyPrefab.rotation);
+				Instantiate( enemyPrefab, spawnPos, Quaternion.Euler(Random.Range(-45,45),Random.Range(-45,45),Random.Range(-45,45)));
         		lastEnemyPos = spawnPos;
 			}
 	 	}else{
-	 		Instantiate( enemyPrefab, spawnPos, enemyPrefab.rotation);
+	 		Instantiate( enemyPrefab, spawnPos, Quaternion.Euler(Random.Range(-45,45),Random.Range(-45,45),Random.Range(-45,45)));
        		lastEnemyPos = spawnPos;	 
 	 	}
     }
