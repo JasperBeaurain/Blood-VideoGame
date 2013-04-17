@@ -29,7 +29,11 @@ function Update () {
 	//rotate along with level
 	var dist:float;
 	dist = transform.position.x - guide.position.x;
-	transform.LookAt(Vector3(target.position.x+dist,target.position.y,target.position.z));
+	//transform.LookAt(Vector3(target.position.x+dist,target.position.y,target.position.z));
+	
+	var rotation = Quaternion.LookRotation(Vector3(target.position.x+dist,target.position.y,target.position.z) - transform.position);
+	transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 6.0);
+
 	
 	//keep track of the current distance the player has travelled
 	distTravelled = transform.position.z;
