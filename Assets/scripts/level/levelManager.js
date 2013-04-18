@@ -13,6 +13,8 @@ var prefab5:Transform;
 private var nextPos : Vector3;
 private var levelQueue : Queue.<Transform> = new Queue.<Transform>(numberOfparts);
 private var rand:int;
+var lvlParts:levelParts = new levelParts();
+
 
 function Start () {
 	
@@ -25,23 +27,28 @@ function Start () {
 		o = Instantiate(calcPrefab(rand),nextPos,calcPrefab(rand).rotation);
 		nextPos.z += o.localScale.z;
 		//nextPos.z += o.renderer.bounds.size.z;
-		levelQueue.Enqueue(o);
+		//levelQueue.Enqueue(o);
+		lvlParts.Add(o);
 	}
 }
 
 function Update () {
 	var o:Transform;
-	o = levelQueue.Peek();
+	o = lvlParts.LastPart();
 	if( o.localPosition.z + recycleDuration < playermovement.distTravelled){
-		o =	levelQueue.Dequeue();
-		var deadObjLength:float;
-		deadObjLength = o.localScale.z;
+		o =	lvlParts.Remove();
+		//var deadObjLength:float;
+		//deadObjLength = o.localScale.z;
 		//deadObjLength = o.renderer.bounds.size.z;
 		Destroy(o.gameObject);
 		rand = Random.Range(1,6);
 		o = Instantiate(calcPrefab(rand),nextPos,calcPrefab(rand).rotation);
-		nextPos.z += deadObjLength;
-		levelQueue.Enqueue(o);
+		Debug.Log("first"+nextPos.z);
+		nextPos.z += lvlParts.FirstPart().localScale.z;
+		Debug.Log("second"+nextPos.z);
+		lvlParts.Add(o);
+		Debug.Log(lvlParts.Length());
+		//levelQueue.Enqueue(o);
 	}
 }
 
@@ -59,4 +66,33 @@ function calcPrefab(number:int){
 			return prefab5;
 	}
 	return prefab1;
+}
+
+class levelParts{
+
+	var parts = new Array();
+	
+	function levelParts(){
+	}
+
+	function Add(obj:Transform){
+		parts.Push(obj);
+	}
+	
+	function Remove():Transform{
+		return parts.Shift();
+	}
+	
+	function LastPart():Transform{
+		return parts[0];
+	}
+	
+	function FirstPart():Transform{
+		return parts[parts.length-1];
+	}
+	
+	function Length():int{
+		Debug.Log(parts[0].ToString());
+		return parts.length;
+	}
 }

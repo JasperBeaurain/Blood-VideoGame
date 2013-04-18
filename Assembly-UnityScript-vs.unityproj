@@ -55,6 +55,7 @@
      <Compile Include="Assets\scripts\level\Spawner.js" />
      <Compile Include="Assets\scripts\level\levelManager.js" />
      <Compile Include="Assets\scripts\level\particles.js" />
+     <Compile Include="Assets\scripts\mainMenuGUI.js" />
      <Compile Include="Assets\scripts\player\heartbeat.js" />
      <Compile Include="Assets\scripts\player\playerGuide.js" />
      <Compile Include="Assets\scripts\player\playerTarget.js" />

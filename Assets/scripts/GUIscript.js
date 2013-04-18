@@ -22,7 +22,7 @@ function Update () {
 	GUIscore.guiText.text = score.ToString();
 	GUIpowers.guiText.text = powers;
 	
-	if (health >= 220){
+	if (health >= 2020){
 		//Debug.Log("You died!");		//End of the line (=dead)
 		toggleDead();
 	}
