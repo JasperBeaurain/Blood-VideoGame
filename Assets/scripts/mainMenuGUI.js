@@ -2,7 +2,7 @@
 
 var buttonStyle:GUIStyle;
 var bgTexture:Texture;
-
+var shiptexture:Texture;
 function Start () {
 
 }
@@ -16,9 +16,9 @@ function OnGUI(){
 	GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, Vector3(1.0*Screen.width/800.0, 1.0*Screen.height/480.0, 1.0));
 	
 	GUI.DrawTexture(Rect(0,0,800,480), bgTexture);
-	
 	if (GUI.Button(Rect(30,100,370,60),"Play",buttonStyle)){
-	 
+		Application.LoadLevel(1);
+			Time.timeScale = 1;
 	}
 	if (GUI.Button(Rect(30,172,370,60),"Highscores",buttonStyle)){
 	 
@@ -30,6 +30,8 @@ function OnGUI(){
 	 
 	}
 	if (GUI.Button(Rect(30,389,370,60),"Quit",buttonStyle)){
-	 
+		Application.Quit();
 	}
+	
+	GUI.DrawTexture(Rect(325,125,450,225),shiptexture);
 }
