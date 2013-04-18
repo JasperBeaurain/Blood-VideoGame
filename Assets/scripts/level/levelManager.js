@@ -30,10 +30,13 @@ function Start () {
 		//levelQueue.Enqueue(o);
 		lvlParts.Add(o);
 	}
+			lvlParts.Length();
+			Debug.Log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 }
 
 function Update () {
 	var o:Transform;
+	var derp:float;
 	o = lvlParts.LastPart();
 	if( o.localPosition.z + recycleDuration < playermovement.distTravelled){
 		o =	lvlParts.Remove();
@@ -43,11 +46,12 @@ function Update () {
 		Destroy(o.gameObject);
 		rand = Random.Range(1,6);
 		o = Instantiate(calcPrefab(rand),nextPos,calcPrefab(rand).rotation);
-		Debug.Log("first"+nextPos.z);
-		nextPos.z += lvlParts.FirstPart().localScale.z;
-		Debug.Log("second"+nextPos.z);
+		derp=lvlParts.FirstPart().localScale.z;
+		nextPos.z += derp;
 		lvlParts.Add(o);
-		Debug.Log(lvlParts.Length());
+			Debug.Log("size previous"+derp);
+			lvlParts.Length();
+			Debug.Log("---------------------");
 		//levelQueue.Enqueue(o);
 	}
 }
@@ -88,11 +92,12 @@ class levelParts{
 	}
 	
 	function FirstPart():Transform{
+			Debug.Log("added "+parts[0].ToString());
 		return parts[parts.length-1];
 	}
 	
 	function Length():int{
-		Debug.Log(parts[0].ToString());
+			Debug.Log("new queue "+parts.ToString());
 		return parts.length;
 	}
 }
