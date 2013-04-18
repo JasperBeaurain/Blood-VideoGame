@@ -21,6 +21,7 @@ var power4 : int = 0;
 var power5 : int = 0;
 
 function Start () {
+	GameObject.Find("shield").active = false;
 }
 
 function Update () {
@@ -227,15 +228,11 @@ function OnTriggerEnter(collider : Collider) {
 
 function setpower1(type : int){			//shield
 	if (type == 1){				//on powerup
-		var ShieldPos:Vector3;
-		ShieldPos = player.transform.position;
-		ShieldPos.z += 2;
-		Instantiate(shield,ShieldPos,shield.rotation);
+		GameObject.Find("shield").active = true;
 		player.GetComponent(shooting).bulletExtraZPos = 2.5;
 		cooldown(1);
 	}else if (type == 0){	//on powerdown while having powerup (normal again)
-		var existingShield : GameObject = GameObject.FindWithTag("shield");
-		Destroy(existingShield);
+		GameObject.Find("shield").active = true;
 		player.GetComponent(shooting).bulletExtraZPos = 1.75;
 	}else if (type == -1){
 		//Extra Life
