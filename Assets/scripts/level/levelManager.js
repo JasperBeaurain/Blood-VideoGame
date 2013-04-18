@@ -46,7 +46,8 @@ function Update () {
 		Destroy(o.gameObject);
 		rand = Random.Range(1,6);
 		o = Instantiate(calcPrefab(rand),nextPos,calcPrefab(rand).rotation);
-		derp=lvlParts.FirstPart().localScale.z;
+		//derp=lvlParts.FirstPart().localScale.z;
+		derp=lvlParts.FirstPart().renderer.bounds.size.z;
 		nextPos.z += derp;
 		lvlParts.Add(o);
 			Debug.Log("size previous"+derp);
