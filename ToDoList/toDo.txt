@@ -27,17 +27,13 @@
 
 -fix shield & triple bullets inside wall
 -fix some powerdowns do nothing
--fix flashing circle at end of segments
 -fix unreachable code warnings (calcPrefab in levelManager.js)
 (-fix powers glitch in wall after shooting besides it)
 
 -fix shield
 - options
-- icon
-- android speed++
-- fix level generation
 - model shield
 - model bullet
 - scores
 - particles
-- ...
+- bullets in player?

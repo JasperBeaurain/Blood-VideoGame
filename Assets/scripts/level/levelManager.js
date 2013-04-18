@@ -38,7 +38,7 @@ function Update () {
 	var o:Transform;
 	var derp:float;
 	o = lvlParts.LastPart();
-	if( o.localPosition.z + recycleDuration < playermovement.distTravelled){
+	if( o.localPosition.z + o.localScale.z + recycleDuration < playermovement.distTravelled){
 		o =	lvlParts.Remove();
 		//var deadObjLength:float;
 		//deadObjLength = o.localScale.z;
@@ -47,9 +47,12 @@ function Update () {
 		rand = Random.Range(1,6);
 		o = Instantiate(calcPrefab(rand),nextPos,calcPrefab(rand).rotation);
 		//derp=lvlParts.FirstPart().localScale.z;
-		derp=lvlParts.FirstPart().renderer.bounds.size.z;
-		nextPos.z += derp;
 		lvlParts.Add(o);
+		derp=lvlParts.FirstPart().renderer.bounds.size.z;
+		Debug.Log("*** before"+nextPos.z);
+		nextPos.z += derp;
+		Debug.Log("*** before"+nextPos.z);
+		Debug.Log("added "+o.ToString());
 			Debug.Log("size previous"+derp);
 			lvlParts.Length();
 			Debug.Log("---------------------");
@@ -93,7 +96,6 @@ class levelParts{
 	}
 	
 	function FirstPart():Transform{
-			Debug.Log("added "+parts[0].ToString());
 		return parts[parts.length-1];
 	}
 	
