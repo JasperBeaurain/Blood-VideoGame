@@ -21,13 +21,14 @@ var power4 : int = 0;
 var power5 : int = 0;
 
 function Start () {
-	GameObject.Find("shield").active = false;
+	shield.active = false;
 }
 
 function Update () {
 	/////////////// POWERUP ///////////////
 	if (colup){
-		decidepower = Random.Range(1,6);
+		//decidepower = Random.Range(1,6);
+		decidepower = 1;
 		
 			//Check to see what powers are already active so you can add to others instead
 		if (power1 == 1 && decidepower == 1){
@@ -228,11 +229,11 @@ function OnTriggerEnter(collider : Collider) {
 
 function setpower1(type : int){			//shield
 	if (type == 1){				//on powerup
-		GameObject.Find("shield").active = true;
+		shield.active = true;
 		player.GetComponent(shooting).bulletExtraZPos = 2.5;
 		cooldown(1);
 	}else if (type == 0){	//on powerdown while having powerup (normal again)
-		GameObject.Find("shield").active = true;
+		shield.active = false;
 		player.GetComponent(shooting).bulletExtraZPos = 1.75;
 	}else if (type == -1){
 		//Extra Life
