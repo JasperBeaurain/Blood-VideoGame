@@ -15,7 +15,6 @@ function Update () {
 	//make the bullet move
 	//transform.position.z += shotSpeed * Time.deltaTime;
 	transform.Translate(Vector3.forward * shotSpeed *Time.deltaTime);
-	
 	//Remove bullet if it hits nothing
 	if (transform.position.z > player.transform.position.z + maxShotDistance){
 		Destroy(gameObject);
