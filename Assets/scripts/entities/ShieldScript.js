@@ -1,6 +1,6 @@
 #pragma strict
 
-var player : GameObject;
+private var player : GameObject;
 
 function Start () {
 	player = GameObject.Find("player");
