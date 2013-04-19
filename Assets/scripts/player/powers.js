@@ -20,15 +20,33 @@ var power3 : int = 0;
 var power4 : int = 0;
 var power5 : int = 0;
 
+var heartTexture:Texture;
+var heartDeathTexture:Texture;
+var power1Texture:Texture;
+var power2Texture:Texture;
+var power3Texture:Texture;
+var power4Texture:Texture;
+var power5Texture:Texture;
+
+var gui : GameObject;
 function Start () {
 	shield.active = false;
+	
+	//show powers in GUI
+	
+	
+	gui = GameObject.Find("GUI");
+    gui.GetComponent(GUIscript).power1Texture = heartTexture;
+    gui.GetComponent(GUIscript).power1Texture = heartTexture;
+    gui.GetComponent(GUIscript).power1Texture = heartTexture;
+    gui.GetComponent(GUIscript).power1Texture = heartTexture;
+    gui.GetComponent(GUIscript).power1Texture = heartTexture;
 }
 
 function Update () {
 	/////////////// POWERUP ///////////////
 	if (colup){
-		//decidepower = Random.Range(1,6);
-		decidepower = 1;
+		decidepower = Random.Range(1,6);
 		
 			//Check to see what powers are already active so you can add to others instead
 		if (power1 == 1 && decidepower == 1){
@@ -198,12 +216,7 @@ function Update () {
 			Destroy(powerup);
 		}
 	}
-		
-	//show powers in GUI
-	
-	var gui : GameObject;
-	gui = GameObject.Find("GUI");
-    gui.GetComponent(GUIscript).powers = power1+" "+power2+" "+power3+" "+power4+" "+power5;
+    
     //show cooldowns in GUI
     
     var guipowers : GameObject;
@@ -230,13 +243,16 @@ function OnTriggerEnter(collider : Collider) {
 function setpower1(type : int){			//shield
 	if (type == 1){				//on powerup
 		shield.active = true;
+		gui.GetComponent(GUIscript).power1Texture = power1Texture;
 		player.GetComponent(shooting).bulletExtraZPos = 2.5;
 		cooldown(1);
 	}else if (type == 0){	//on powerdown while having powerup (normal again)
 		shield.active = false;
 		player.GetComponent(shooting).bulletExtraZPos = 1.75;
+		gui.GetComponent(GUIscript).power1Texture = heartTexture;
 	}else if (type == -1){
 		//Extra Life
+		gui.GetComponent(GUIscript).power1Texture = heartDeathTexture;
 	}
 }
 
@@ -244,11 +260,13 @@ function setpower2(type : int){			//shootingspeed
 	if (type == 1){
 		player.GetComponent(shooting).shootdelay = 0.1;
 		cooldown(2);
+		gui.GetComponent(GUIscript).power2Texture = power2Texture;
 	}else if (type == 0){
 		player.GetComponent(shooting).shootdelay = 0.2;
+		gui.GetComponent(GUIscript).power2Texture = heartTexture;
 	}else if (type == -1){
 		//Extra Life
-		
+		gui.GetComponent(GUIscript).power2Texture = heartDeathTexture;
 	}
 }
 
@@ -256,10 +274,13 @@ function setpower3(type : int){			//bullets
 	if (type == 1){
 		player.GetComponent(shooting).shoottype = "triple";
 		cooldown(3);
+		gui.GetComponent(GUIscript).power3Texture = power3Texture;
 	}else if (type == 0){
 		player.GetComponent(shooting).shoottype = "single";
+		gui.GetComponent(GUIscript).power3Texture = heartTexture;
 	}else if (type == -1){
 		//Extra Life
+		gui.GetComponent(GUIscript).power3Texture = heartDeathTexture;
 	}
 }
 
@@ -267,10 +288,13 @@ function setpower4(type : int){			//shoot distance
 	if (type == 1){
 		bullet.GetComponent(bulletScript).maxShotDistance = 50;
 		cooldown(4);
+		gui.GetComponent(GUIscript).power4Texture = power4Texture;
 	}else if (type == 0){
 		bullet.GetComponent(bulletScript).maxShotDistance = 30;
+		gui.GetComponent(GUIscript).power4Texture = heartTexture;
 	}else if (type == -1){
 		//Extra life
+		gui.GetComponent(GUIscript).power4Texture = heartDeathTexture;
 	}
 }
 
@@ -278,10 +302,13 @@ function setpower5(type : int){			//cooldown time
 	if (type == 1){
 		PowerupCooldown = 20;
 		cooldown(5);
+		gui.GetComponent(GUIscript).power5Texture = power5Texture;
 	}else if (type == 0){
 		PowerupCooldown = 10;
+		gui.GetComponent(GUIscript).power5Texture = heartTexture;
 	}else if (type == -1){
 		//Extra life
+		gui.GetComponent(GUIscript).power5Texture = heartDeathTexture;
 	}
 }
 

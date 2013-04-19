@@ -7,7 +7,12 @@ var player : Transform;
 
 var health: int = 120;
 public static var score: int = 0;
-var powers: String;
+var power1: int;
+var power2: int;
+var power3: int;
+var power4: int;
+var power5: int;
+
 var cooldown: String;
 
 var style:GUIStyle;
@@ -16,6 +21,16 @@ public static var dead = false;
 
 var buttonStyle:GUIStyle;
 var bgTexture:Texture;
+var titleStyle:GUIStyle;
+var scoreStyle:GUIStyle;
+
+var guiBgTexture:Texture;
+
+var power1Texture:Texture;
+var power2Texture:Texture;
+var power3Texture:Texture;
+var power4Texture:Texture;
+var power5Texture:Texture;
 
 function Start () {
 }
@@ -23,7 +38,6 @@ function Start () {
 function Update () {
 	GUIhealth.guiText.text = health.ToString();
 	GUIscore.guiText.text = score.ToString();
-	GUIpowers.guiText.text = powers;
 	
 	if (health >= 2020){
 		//Debug.Log("You died!");		//End of the line (=dead)
@@ -32,13 +46,22 @@ function Update () {
 }
 
 function OnGUI(){
-	if(paused){
+
+	GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, Vector3(1.0*Screen.width/800.0, 1.0*Screen.height/480.0, 1.0));
+		
+	GUI.DrawTexture(Rect(350,0,450,98), guiBgTexture);
 	
-		GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, Vector3(1.0*Screen.width/800.0, 1.0*Screen.height/480.0, 1.0));
+	GUI.DrawTexture(Rect(432,0,45,45), power1Texture);
+	GUI.DrawTexture(Rect(502,0,45,45), power2Texture);
+	GUI.DrawTexture(Rect(572,0,45,45), power3Texture);
+	GUI.DrawTexture(Rect(642,0,45,45), power4Texture);
+	GUI.DrawTexture(Rect(712,0,45,45), power5Texture);
+
+	if(paused){
 		
 		GUI.DrawTexture(Rect(0,0,800,480), bgTexture);
 		
-		GUI.Label(Rect(400,50,100,20),"Paused");
+		GUI.Label(Rect(300,50,200,40),"Paused",titleStyle);
 		
 		if (GUI.Button(Rect(300,100,200,60),"Resume",buttonStyle)){
 	 		Pause();
@@ -48,7 +71,7 @@ function OnGUI(){
 			Application.LoadLevel(0);
 		}
 		if (GUI.Button(Rect(300,245,200,60),"Instructions",buttonStyle)){
-		 
+			
 		}
 		if (GUI.Button(Rect(300,317,200,60),"Options",buttonStyle)){
 		 
@@ -57,14 +80,12 @@ function OnGUI(){
 	}
 	if(dead){
 	
-		var posted:boolean =false;
-		
-		GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, Vector3(1.0*Screen.width/800.0, 1.0*Screen.height/480.0, 1.0));		
+		var posted:boolean =false;	
 		
 		GUI.DrawTexture(Rect(0,0,800,480), bgTexture);
 		
-		GUI.Label(Rect(400,40,200,20),"You died!");
-		GUI.Label(Rect(400,65,150,20),"Score: " + score);
+		GUI.Label(Rect(300,70,200,40),"You died!",titleStyle);
+		GUI.Label(Rect(300,120,200,40),"Score: " + score,scoreStyle);
 		
 		if (GUI.Button(Rect(300,200,200,60),"Submit Score",buttonStyle)){
 	 		if (!posted){
