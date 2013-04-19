@@ -22,7 +22,8 @@ public static var dead = false;
 var buttonStyle:GUIStyle;
 var bgTexture:Texture;
 var titleStyle:GUIStyle;
-var scoreStyle:GUIStyle;
+var scoreStyle:GUIStyle; 
+var guiScoreStyle:GUIStyle;
 
 var guiBgTexture:Texture;
 
@@ -36,10 +37,7 @@ function Start () {
 }
 
 function Update () {
-	GUIhealth.guiText.text = health.ToString();
-	GUIscore.guiText.text = score.ToString();
-	
-	if (health >= 2020){
+	if (health >= 220){
 		//Debug.Log("You died!");		//End of the line (=dead)
 		toggleDead();
 	}
@@ -55,8 +53,11 @@ function OnGUI(){
 	GUI.DrawTexture(Rect(502,0,45,45), power2Texture);
 	GUI.DrawTexture(Rect(572,0,45,45), power3Texture);
 	GUI.DrawTexture(Rect(642,0,45,45), power4Texture);
-	GUI.DrawTexture(Rect(712,0,45,45), power5Texture);
-
+	GUI.DrawTexture(Rect(712,0,45,45), power5Texture); 
+	
+	GUI.Label(Rect(530,65,200,25),health.ToString(),guiScoreStyle);
+ 	GUI.Label(Rect(10,10,200,25),score.ToString(),guiScoreStyle);
+ 
 	if(paused){
 		
 		GUI.DrawTexture(Rect(0,0,800,480), bgTexture);

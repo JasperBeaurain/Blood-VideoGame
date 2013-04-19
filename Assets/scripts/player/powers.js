@@ -216,16 +216,6 @@ function Update () {
 			Destroy(powerup);
 		}
 	}
-    
-    //show cooldowns in GUI
-    
-    var guipowers : GameObject;
-    guipowers = GameObject.Find("powers");
-    if (warncooldown1||warncooldown2||warncooldown3||warncooldown4||warncooldown5){
-    	guipowers.guiText.fontStyle = FontStyle.Italic;
-    }else {
-    	guipowers.guiText.fontStyle = FontStyle.Normal;
-    }
 }
 
 function OnTriggerEnter(collider : Collider) {
