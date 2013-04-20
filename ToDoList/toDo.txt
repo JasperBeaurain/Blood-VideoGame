@@ -15,25 +15,12 @@
 	-red bloodcells
 	-shield (forcefield?)
 
--make menus (highscores, options)
 -start easier, slowly getting harder
--skin gui (power icons, cardiogram)
--skin menus (different font?, colors)
 -make comic (small story + how to play)
 -make second moving method (disable tilting)
--make leaderboards & score
 -change database user permissions
 -make particles spawn inside cornered tubes
 
--fix shield & triple bullets inside wall
 -fix some powerdowns do nothing
 -fix unreachable code warnings (calcPrefab in levelManager.js)
-(-fix powers glitch in wall after shooting besides it)
-
--fix shield
-- options
-- model shield
-- model bullet
-- scores
-- particles
-- bullets in player?
+-fix powers glitch in wall after shooting besides it
