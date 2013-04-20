@@ -1,9 +1,11 @@
 #pragma strict
-
+import System.Math;
 var player : Transform;
 
 var health: int = 120;
 public static var score: int = 0;
+public static var totscore : int = 0;
+public static var playerName:String = "";
 var power1: int;
 var power2: int;
 var power3: int;
@@ -34,6 +36,7 @@ function Start () {
 }
 
 function Update () {
+	totscore = score + System.Math.Round(System.Math.Pow(player.position.z,0.8));
 	if (health >= 220){
 		//Debug.Log("You died!");		//End of the line (=dead)
 		toggleDead();
@@ -53,7 +56,7 @@ function OnGUI(){
 	GUI.DrawTexture(Rect(712,0,45,45), power5Texture); 
 	
 	GUI.Label(Rect(530,65,200,25),health.ToString(),guiScoreStyle);
- 	GUI.Label(Rect(10,10,200,25),score.ToString(),guiScoreStyle);
+ 	GUI.Label(Rect(10,10,200,25),totscore.ToString(),guiScoreStyle);
  
 	if(paused){
 		
@@ -83,13 +86,17 @@ function OnGUI(){
 		GUI.DrawTexture(Rect(0,0,800,480), bgTexture);
 		
 		GUI.Label(Rect(300,70,200,40),"You died!",titleStyle);
-		GUI.Label(Rect(300,120,200,40),"Score: " + score,scoreStyle);
+		GUI.Label(Rect(300,120,200,40),"Score: " + totscore,scoreStyle);
+		
+		playerName = GUI.TextField (Rect (300, 160, 200, 30), playerName, 25);
 		
 		if (GUI.Button(Rect(300,200,200,60),"Submit Score",buttonStyle)){
 	 		if (!posted){
-				posted = true;
-				GetComponentInChildren(scoreHandler).SendMessage("postScore");
-				GUI.Label(Rect(Screen.width/2+100,Screen.height/2 + 50,100,20),"Submitted");
+		 		if(playerName != ""){
+					posted = true;
+					GetComponentInChildren(scoreHandler).SendMessage("postScore");
+					GUI.Label(Rect(Screen.width/2+100,Screen.height/2 + 50,100,20),"Submitted");
+				}
 			}
 		}
 		if (GUI.Button(Rect(300,272,200,60),"Main Menu",buttonStyle)){

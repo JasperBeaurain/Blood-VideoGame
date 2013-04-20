@@ -2,6 +2,7 @@
 var addScoreUrl="http://www.tehgamingcrew.com/bloodgame/highscores/addscore.php?"; //be sure to add a ? to your url
 var highscoreUrl="http://www.tehgamingcrew.com/bloodgame/highscores/display.php";    
 private var SecretKey;
+var score:int;
 function Start() {
 	SecretKey = secretkey.key;
 }
@@ -9,8 +10,8 @@ function Start() {
 function postScore() {
     //This connects to a server side php script that will add the name and score to a MySQL DB.
     // Supply it with a string representing the players name and the players score.
-    var name = "Jasper9041";
-    var score = 10;
+    var name = GetComponentInChildren(GUIscript).playerName;
+    score = GetComponentInChildren(GUIscript).totscore;
     var hash=MD5.Md5Sum(name + score + SecretKey);
  
     var highscore_url = addScoreUrl + "name=" + WWW.EscapeURL(name) + "&score=" + score + "&hash=" + hash;

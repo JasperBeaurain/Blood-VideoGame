@@ -162,7 +162,7 @@ function Update () {
 		if (decidepower == 1){
 			if (power1 == 0){
 				power1 -= 1;
-				//setpower1(-1);		//optional powerdown effect
+				setpower1(-1);		//optional powerdown effect
 			}else if (power1 == 1){
 				power1 -= 1;
 				warncooldown1 = false;
@@ -171,6 +171,7 @@ function Update () {
 		}else if (decidepower == 2){
 			if (power2 == 0){
 				power2 -= 1;
+				setpower2(-1);
 			}else if (power2 == 1){
 				power2 -= 1;
 				warncooldown2 = false;
@@ -179,6 +180,7 @@ function Update () {
 		}else if (decidepower == 3){
 			if (power3 == 0){
 				power3 -= 1;
+				setpower3(-1);
 			}else if (power3 == 1){
 				power3 -= 1;
 				warncooldown3 = false;
@@ -187,6 +189,7 @@ function Update () {
 		}else if (decidepower == 4){
 			if (power4 == 0){
 				power4 -= 1;
+				setpower4(-1);
 			}else if (power4 == 1){
 				power4 -= 1;
 				warncooldown4 = false;
@@ -195,6 +198,7 @@ function Update () {
 		}else if (decidepower == 5){
 			if (power5 == 0){
 				power5 -= 1;
+				setpower5(-1);
 			}else if (power5 == 1){
 				power5 -= 1;
 				warncooldown5 = false;
