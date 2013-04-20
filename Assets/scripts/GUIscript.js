@@ -1,8 +1,5 @@
 #pragma strict
 
-var GUIhealth: Transform;
-var GUIscore: Transform; 
-var GUIpowers: Transform;
 var player : Transform;
 
 var health: int = 120;

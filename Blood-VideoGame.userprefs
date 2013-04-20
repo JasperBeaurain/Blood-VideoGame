@@ -1,8 +1,24 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Temp\Compiled-GlowEffectThresholdDownsample.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\GUIscript.js">
     <Files>
       <File FileName="Temp\Compiled-GlowEffectThresholdDownsample.shader" Line="1" Column="1" />
+      <File FileName="Assets\scripts\entities\ShieldScript.js" Line="16" Column="3" />
+      <File FileName="Assets\scripts\scoreHandler.js" Line="1" Column="1" />
+      <File FileName="Assets\scripts\level\levelManager.js" Line="1" Column="15" />
+      <File FileName="Assets\scripts\player\playerGuide.js" Line="1" Column="1" />
+      <File FileName="Assets\scripts\entities\MoveScript.js" Line="1" Column="1" />
+      <File FileName="Assets\scripts\player\playermovement.js" Line="1" Column="1" />
+      <File FileName="Assets\scripts\level\PowerSpawner.js" Line="1" Column="1" />
+      <File FileName="Assets\scripts\buttoncontrol.js" Line="1" Column="1" />
+      <File FileName="Assets\scripts\player\shooting.js" Line="1" Column="1" />
+      <File FileName="Assets\secretkey\secretkey.js" Line="1" Column="1" />
+      <File FileName="Assets\scripts\level\Spawner.js" Line="1" Column="1" />
+      <File FileName="Assets\scripts\entities\bulletScript.js" Line="29" Column="36" />
+      <File FileName="Assets\scripts\player\playerTarget.js" Line="1" Column="1" />
+      <File FileName="Assets\scripts\player\powers.js" Line="21" Column="22" />
+      <File FileName="Assets\scripts\mainMenuGUI.js" Line="66" Column="4" />
+      <File FileName="Assets\scripts\GUIscript.js" Line="72" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
