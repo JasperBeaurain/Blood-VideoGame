@@ -27,14 +27,13 @@ function postScore() {
  
 // Get the scores from the MySQL DB to display in a GUIText.
 function getScores() {
-    gameObject.guiText.text = "Loading Scores";
     var hs_get = WWW(highscoreUrl);
     yield hs_get;
  
     if(hs_get.error) {
     	Debug.Log("There was an error getting the high score: " + hs_get.error);
     } else {
-        gameObject.guiText.text = hs_get.text; // this is a GUIText that will display the scores in game.
-
+      	// this is a GUIText that will display the scores in game.
+		GetComponentInChildren(mainMenuGUI).scores = hs_get.text;
     }
 }

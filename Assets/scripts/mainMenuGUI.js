@@ -14,6 +14,8 @@ var isHighScores:boolean = false;
 var isOptions:boolean = false;
 var isInstructions:boolean = false;
 
+public static var scores:String;
+
 function Start () {
 	reset();
 	isMainMenu = true;
@@ -60,6 +62,8 @@ function OnGUI(){
 	}
 	if(isHighScores){
 		//display highscores in here
+		GetComponentInChildren(scoreHandler).SendMessage("getScores");
+		GUI.Label(Rect(30,30,740,400),scores);
 		if (GUI.Button(Rect(300,400,200,60),"Back",backButtonStyle)){
 			reset();
 			isMainMenu = true;
